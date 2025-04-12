@@ -1,0 +1,244 @@
+---
+title: ""
+author: "Jorge Luis Villalba"
+date: "`r Sys.Date()`"
+format: pdf
+geometry:
+  - left = 2.5cm
+  #- textwidth=7in
+  - top = 2.0cm
+  - right = 2.5cm
+header-includes:
+  - \usepackage{fancyhdr} 
+  - \usepackage{ragged2e} 
+  - \usepackage{geometry} 
+  - \usepackage{amsmath, amsfonts, amssymb, latexsym, amsthm, amsfonts} 
+  - \usepackage{float} 
+  - \usepackage{subcaption} 
+  - \usepackage[dvips]{psfrag} 
+  - \usepackage{enumerate} 
+  - \usepackage{graphicx} 
+  - \usepackage{caption} 
+  - \usepackage{multirow}  % Para tablas
+  - \usepackage{flushend} 
+  - \usepackage{hyperref}
+
+---
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\refname}{References}
+
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta,
+urlcolor=cyan,
+pdftitle={JORGE LUIS VILLALBA},
+bookmarks=true,
+pdfpagemode=FullScreen,
+}
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, comment = FALSE, warning = FALSE)
+```
+
+
+\pagestyle{fancy}
+\fancyhead[R]{}
+\fancyhead[L]{\footnotesize{Caso de estudios }}
+\fancyfoot[L]{\includegraphics[height=0.5cm]{imagenes/logoc.png}}
+\fancyfoot[R]{}
+
+
+
+\title{The style  
+\includegraphics[width=1.3cm]{imagenes/logoR.png} + \LaTeX$^2$ ( Title in English)\\
+El estilo \includegraphics[width=1.3cm]{imagenes/logoR.png} + \LaTeX$^2$  (Title in Spanish) }
+
+
+
+\author{Jorge Villalba-Acevedo \thanks{ Ciencias básicas, Universidad Tecnológica de
+Bolívar, Colombia, e-mail: \url{jvilllaba@utb.edu.co}}
+\and Alejandro Gutiérrez-Vera \thanks{ Facultad de ingeniería, Universidad de Celaya, México, e-mail: \url{agutierrez@udec.edu.mx}}
+\and  \thanks{ Ciencias básicas, Instituto Tecnológico de Celaya, méxico, \url{@udec.edu.mx}}
+\and otro autor\thanks{}  
+\and otro autor\thanks{}
+}
+
+
+
+
+
+\begin{@twocolumnfalse}
+\maketitle
+
+\begin{center}\rule{12cm}{0.3mm} \end{center}
+
+\begin{center}
+\textbf{Abstract} 
+\end{center}
+ 
+\justify
+
+\textbf{Background:}
+
+\textbf{Aims:} Jorge Luis Villalba 
+
+\textbf{Methods:}
+
+\textbf{Results:}
+
+\textbf{Conclusions:}
+
+
+
+\textbf{\textit{Keywords:}}
+Colombia, méxico, word 3, word 4, word 5, word 6.
+
+
+\begin{center}
+\textbf{Resumen} 
+\end{center}
+
+\justify
+
+
+\textbf{Antecedentes:}
+
+\textbf{Objetivos:}
+
+\textbf{Método:}
+
+\textbf{Resultados:}
+  
+\textbf{Conclusión:}
+
+
+\textbf{\textit{Palabras clave:}}
+Colombia, méxico, word 3, word 4, word 5, word 6.
+
+
+\begin{center}\rule{12cm}{0.3mm} \end{center}
+\end{@twocolumnfalse}
+
+
+## 1. Introduction
+
+Distribution that, as in the preceding mode, can be distinguished by the occurrence probability allocated to the three scenarios.
+ This paper presents an analysis of the distribution of the sample pro
+ portion  and the diferene in sample proportions \cite{jorge}  taken from a randomly generated population textit Mi rosoft.
+ 
+
+## 2. Data
+
+
+
+Distribution that, as in the preceding mode, can be distinguished by the occurrence probability allocated to the three scenarios \cite{2}.
+ This paper presents an analysis of the distribution of the sample pro
+ portion  and the diferene in sample proportions  taken from a randomly generated population textit Mi rosoft \cite[p\'ag 21]{Baz}.
+ 
+### Ejemplo de ecuación 1
+
+\begin{equation}
+\int x^3 dx = \dfrac{x^4}{4} + C
+\label{intcub}
+\end{equation} 
+
+
+
+## 3. Materials and Methods
+
+
+
+\begin{figure}
+\centering
+\includegraphics[height=3.5cm]{imagenes/logoc.png}
+\caption{Villalba}
+\end{figure}
+
+ 
+## 4. Results and Discussion
+
+
+Distribution that, as in the preceding mode, can be distinguished by the occurrence probability allocated to the three scenarios.
+
+
+ This paper presents an analysis of the distribution of the sample pro
+ 
+### Ejemplo de ecuación 2
+
+$\textcolor{blue}{\alpha} = P(``\text{Error tipo I}")$
+
+$\textcolor{blue}{\alpha}= P("\text{Rechazar} H_{0}" | "H_{0} \text{es verdadera}")$
+
+$\textcolor{blue}{\alpha} = P(| \dfrac{\bar{x} - \theta_{0}}{\sigma/ \sqrt{n}}| > c  | \theta = \theta_{0} )$
+
+$\textcolor{blue}{\alpha} = P(  |Z| > c )$ con $Z \sim\mathcal{N}(0,\,1)$.
+
+### Ejemplo de gráfica 1
+
+
+```{r, fig.height=3,fig.width=5,fig.cap="ggplot"}
+library(tidyverse)
+ggplot(iris, aes(x = Sepal.Width, y = Petal.Width, colour = Species))+
+  geom_point()
+```
+
+
+\newpage
+
+### Ejemplo de tabla 1
+
+
+
+||**Pob1**| **Pob2**|**Pobext1**|**Pobext2**|**Gini1**|**Gini2**|
+|---------------|------|------|------|------|------|------|
+|               | 2010 | 2011 | 2010 | 2011 | 2010 | 2011 |
+| Pasto         | 43,2 | 40,6 | 11,7 | 8,8  | 52,3 | 52,2 |
+| Montería      | 39,7 | 37,5 | 6,7  | 6,5  | 52,5 | 53,0 |
+| Barranquilla  | 39,5 | 34,7 | 7,4  | 5,3  | 49,7 | 47,2 |
+| Cúcuta        | 39,3 | 33,9 | 8,4  | 5,7  | 47,9 | 47,1 |
+| Cartagena     | 34,2 | 33,4 | 6,2  | 4,7  | 48,9 | 48,8 |
+| Cali          | 26,1 | 25,1 | 6,4  | 5,2  | 52,9 | 50,4 |
+| Villavicencio | 25,4 | 23,0 | 4,8  | 4,02 | 46,7 | 46,7 |
+| Ibagué        | 26,6 | 22,0 | 4,3  | 2,7  | 49,5 | 44,9 |
+| Pereira       | 26,8 | 21,6 | 3,8  | 2,2  | 45,6 | 45,1 |
+| Manizales     | 23,8 | 19,2 | 4,7  | 2,3  | 49,5 | 47,1 |
+| Medellín      | 22,0 | 19,2 | 5,6  | 4,0  | 53,8 | 50,7 |
+| Bogotá        | 15,5 | 13,1 | 2,6  | 2,0  | 52,6 | 52,2 |
+| Bucaramanga   | 10,9 | 10,7 | 1,2  | 1,1  | 45,0 | 44,9 | 
+
+ : Datos de pobreza en Colombia en 2010 y 2011.
+
+
+### Ejemplo de tabla 2
+
+```{r}
+knitr::kable(head(iris),caption = "marco de datos")
+```
+
+
+
+## 5. Conclusion and Recommendations
+
+## Acknowledgments
+
+## Appendix A. Dataset link
+
+\newpage
+
+\begin{thebibliography}{01}
+\bibitem{jorge} Referencia n\'umero uno.
+\bibitem{2} Referencia n\'umero dos.
+\bibitem{3} Referencia n\'umero tres.
+\bibitem{Baz} \textsc{Bazaraa, M.S., J.J. Jarvis} y \textsc{H.D. Sherali},
+\textit{Programaci\'on lineal y flujo en redes}, segunda edici\'on,Limusa, M\'exico, DF, 2004.
+\end{thebibliography}
+
+
+
+

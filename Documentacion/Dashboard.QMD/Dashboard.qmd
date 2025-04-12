@@ -1,0 +1,37 @@
+---
+title: "Exploratory data analysis"
+author: "Jorge Luis Villalba Acevedo"
+format: 
+  dashboard:
+    theme: united
+    logo: Imgs/LFCBUTB2.png
+    orientation: rows
+execute: 
+  echo: true
+  warning: false
+  message: false
+  comment: false
+self-contained: TRUE  
+---
+
+
+# Presentation
+
+# Introduction 
+
+# Data
+
+# Materials and Methods
+
+# Results and Discussion
+
+
+# Conclusion and Recommendations
+
+# References
+
+
+
+
+
+
