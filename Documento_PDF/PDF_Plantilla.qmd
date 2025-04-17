@@ -1,6 +1,6 @@
 ---
 title: ""
-author: "Jorge Luis Villalba"
+author: ""
 date: "`r Sys.Date()`"
 format: pdf
 geometry:
@@ -55,19 +55,21 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, comment = FALSE, warning = 
 
 
 
-\title{The style  
-\includegraphics[width=1.3cm]{imagenes/logoR.png} + \LaTeX$^2$ ( Title in English)\\
-El estilo \includegraphics[width=1.3cm]{imagenes/logoR.png} + \LaTeX$^2$  (Title in Spanish) }
+\title{Diagnosis of Operational Failures in the SITM of Cartagena\\
+Diagnóstico de las Fallas Operativas del SITM en Cartagena }
 
 
 
-\author{Jorge Villalba-Acevedo \thanks{ Ciencias básicas, Universidad Tecnológica de
-Bolívar, Colombia, e-mail: \url{jvilllaba@utb.edu.co}}
-\and Alejandro Gutiérrez-Vera \thanks{ Facultad de ingeniería, Universidad de Celaya, México, e-mail: \url{agutierrez@udec.edu.mx}}
-\and  \thanks{ Ciencias básicas, Instituto Tecnológico de Celaya, méxico, \url{@udec.edu.mx}}
-\and otro autor\thanks{}  
-\and otro autor\thanks{}
-}
+\author{Alexander Sánchez González \thanks{ Universidad Tecnológica de
+Bolívar, Colombia, e-mail: \url{sancheza@utb.edu.co}, ID: T00054514}
+\and Amparo Hazbun Martinez \thanks{ Universidad Tecnológica de
+Bolívar, Colombia, e-mail: \url{ahazbun@utb.edu.co}, ID: T000XXXXX}
+\and Maria Mercedes Romero Racine \thanks{ Universidad Tecnológica de
+Bolívar, Colombia, e-mail: \url{mracine@utb.edu.co}, ID: T000XXXXX}
+\and Misael Jose Pastrana Fuentes \thanks{ Universidad Tecnológica de
+Bolívar, Colombia, e-mail: \url{pastranam@utb.edu.co}, ID: T000XXXXX}
+} 
+
 
 
 

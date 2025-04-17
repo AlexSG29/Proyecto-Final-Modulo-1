@@ -1,0 +1,67 @@
+---
+title: "Tratado_de_Data"
+format: html
+---
+
+
+Aqui voy a tratar la data sin necesidad de sobreescribir  en el documento oficial en PDF. Asi que vamos a cargar la data:
+
+```{python}
+import pandas as pd
+import numpy as np
+```
+
+```{python}
+# Cargar la data
+df = pd.read_csv("C:/Users/LENOVO/OneDrive/Documents/UTB/MAESTRIA/PROGRAMAC Y ESTADIS COMPUTACIO-1177-202550/Proyecto Final de Modulo/Proyecto-Final-Modulo-1/Data/Cruda/BD_CONFIABILIDAD.csv", 
+                  sep=",", 
+                  low_memory=False,
+                  #la primera fila es el encabezado
+                  header=0,
+                  )
+df.head()
+```
+```{python}
+# Verificar la cantidad de filas y columnas
+df.shape
+```
+
+```{python}
+# Verificar los tipos de datos
+df.dtypes
+```
+
+```{python}
+# Convertir la columna de fecha a tipo datetime
+df['FECHA'] = pd.to_datetime(df['FECHA'], format='%d/%m/%Y', errors='coerce')
+# Verificar los tipos de datos nuevamente
+df.dtypes
+```
+
+```{python}
+#Verificamos cuantos nulos o vacios hay por variable
+df.isnull().sum()
+```
+
+```{python}
+# y en total
+df.isnull().sum().sum()
+```
+
+En estos casos las unicas variables que de verdad influye en el analisis en cuando a valores nulos son: SISTEMA, SUBSISTEMA, REF, COMPONENTE, sin embargo, estas variables no tiene sentido eliminarlas puesto que son variables categoricas y el estar nula es igualmente un indicio de que no se detecto como tal el componente que falló en su momento. 
+
+```{python}
+# Vamos a eliminar las filas vacias de la columna fecha 
+df = df.dropna(subset=['FECHA'])
+# Verificamos nuevamente
+df.isnull().sum()
+```
+
+```{python}
+#Guardar la data limpia
+df.to_csv("C:/Users/LENOVO/OneDrive/Documents/UTB/MAESTRIA/PROGRAMAC Y ESTADIS COMPUTACIO-1177-202550/Proyecto Final de Modulo/Proyecto-Final-Modulo-1/Data/Procesada/Alex_01_Depurada.csv", 
+           sep=",", 
+           index=False)
+```
+
+

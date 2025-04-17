@@ -1,0 +1,54 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Tratado_de_Data\"\n",
+        "format: html\n",
+        "---\n",
+        "\n",
+        "\n",
+        "\n",
+        "Aqui voy a tratar la data sin necesidad de sobreescribir  en el documento oficial en PDF. Asi que vamos a cargar la data:\n"
+      ],
+      "id": "d64a3e34"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np"
+      ],
+      "id": "9b9b02f2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Cargar la data\n",
+        "df = pd.read_csv(\"C:/Users/LENOVO/OneDrive/Documents/UTB/MAESTRIA/PROGRAMAC Y ESTADIS COMPUTACIO-1177-202550/Proyecto Final de Modulo/Proyecto-Final-Modulo-1/Data/Cruda/BD_CONFIABILIDAD.csv\", \n",
+        "                  sep=\";\", \n",
+        "                  low_memory=False \n",
+        "                  )\n",
+        "df.head()"
+      ],
+      "id": "d1a84888",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
