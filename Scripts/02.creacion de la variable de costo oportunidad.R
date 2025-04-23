@@ -1,4 +1,4 @@
-# -------------------------------------------------------------------------    
+# ------------------------------------------------------------------------- 
 # Titulo :data
 # Autor(es) : Maria Mercedes Romero Racine
 # Afiliación : UTB 
@@ -68,11 +68,10 @@ df <-df %>%
                                                              round(total_pasajeros_trasportados_diario/parametros$num_patron))) %>% 
                      select(tipologia,total_usuarios_por_ruta)
   ) %>% 
-  mutate(num_min_pasajeros = ifelse(tiplogia == "BUSETON",80,90),
-         num_max_pasajeros = ifelse(tiplogia == "BUSETON",160,180),
-         costo_oportunidad_plana =total_usuarios_por_ruta*parametros$costo_pasaje,
-         costo_opot_min = num_min_pasajeros*parametros$costo_pasaje,
-         costo_opot_max = num_max_pasajeros*parametros$costo_pasaje)
+  mutate(num_min_pasajeros = ifelse(tipologia == "BUSETON",80,90),
+         num_max_pasajeros = ifelse(tipologia == "BUSETON",160,180),
+         costo_opot_min = num_min_viajes*num_min_pasajeros*parametros$costo_pasaje,
+         costo_opot_max = num_max_viajes*num_max_pasajeros*parametros$costo_pasaje)
 
 
 
