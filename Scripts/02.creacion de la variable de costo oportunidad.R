@@ -14,6 +14,7 @@ library(tidyverse)
 library(janitor)
 library(readxl)
 library(stringr)
+library(lubridate)
 # ------------------------------------------------------------------------- 
 # Cargar datos ------------------------------------------------------------
 df<- read.csv("Data/Procesada/Alex_01_Depurada.csv")
@@ -68,15 +69,30 @@ df <-df %>%
                                                              round(total_pasajeros_trasportados_diario/parametros$num_patron))) %>% 
                      select(tipologia,total_usuarios_por_ruta)
   ) %>% 
-  mutate(num_min_pasajeros = ifelse(tipologia == "BUSETON",80,90),
+  mutate(# hora de arreglo
+    fecha= as.POSIXct(paste(fecha,hora_novedad)),
+    #general in retrso aleatorio en segundos
+    retrazo = (sample(4:96,length(fecha),replace = TRUE))*3600,
+    #sumar el retrazo
+    fecha_hora_retrazo = fecha+retrazo,
+    #separar fecha inicial
+    nueva_fecha = as.Date(fecha_hora_retrazo),
+    #separar la hora de la fecha
+    nueva_hora = format(fecha_hora_retrazo,"%H:%M:%S"),
+    #diferncia de dias de varadas
+    dia_varados = abs(round(difftime(nueva_fecha,fecha,units = "days"))),
+    dia_varados = gsub("days","",dia_varados),
+    dia_varados = as.numeric(dia_varados),
+    #costo de oportunidad
+    num_min_pasajeros = ifelse(tipologia == "BUSETON",80,90),
          num_max_pasajeros = ifelse(tipologia == "BUSETON",160,180),
          costo_opot_min = num_min_viajes*num_min_pasajeros*parametros$costo_pasaje,
          costo_opot_max = num_max_viajes*num_max_pasajeros*parametros$costo_pasaje)
 
 
 
-
-
+#gurardar la base de datos
+writexl::write_xlsx(df,"Dashboard_Presentacion/df_final.xlsx")
 
 
 

@@ -13,25 +13,161 @@ execute:
   comment: false
 self-contained: TRUE  
 ---
+```{r,echo=FALSE}
+library(dplyr)
+library(ggplot2)
+library(forcats)
+library(readxl)
+library(scales)
+library(stringr)
+```
+
+```{r,echo=FALSE}
+df <- read_xlsx("df_final.xlsx")
+```
+
+```{r,echo=FALSE}
+# Tarjeta 1: promedio de varadas que se dan durante el periodo de tiempo
+mean_dias_varad <- df %>% 
+  filter(varado == "SI") %>% 
+  summarise(mean_dias_vara = round(mean(dia_varados,na.rm = TRUE))) %>% 
+  pull(mean_dias_vara)
+
+# Tarjeta 2: costo promedio del mantenimiento
+mean_costo_opertativo <-dollar(mean(df$costo_x_perdida),big.mark = ".")
+
+# Tarjeta 3: numero de varadad acomuladas.
+num_varad = length(df$ruta)
+num_varad = formatC(num_varad, big.mark = ".")
+
+# Tarjeta 4: Dia con mas varadas
+dia_repor_mayor_eventos <-df %>% 
+    group_by(dia_habil) %>%
+    summarise(frecuencia = n()) %>% 
+    arrange(desc(frecuencia)) %>% 
+  mutate(rankig = 1:n(),
+         dia_habil = str_to_sentence(dia_habil)) %>% 
+    filter(rankig == 1) %>%
+    pull(dia_habil)
+```
 
 
-# Presentation
-
-# Introduction 
-
-# Data
-
-# Materials and Methods
-
-# Results and Discussion
-
-
-# Conclusion and Recommendations
-
-# References
+# Analisis exploratorio de la data
 
 
 
 
 
+# Analisis de patrones y causas
+## Row
+```{r}
+#| content: valuebox
+#| title: "Promedio de dias varados"
 
+list(
+  icon = "file-medical", #cambiar el icono
+  color = "primary",
+  value = mean_dias_varad
+)
+```
+
+
+```{r}
+#| content: valuebox
+#| title: "costo promedio de las varadas"
+
+list(
+  icon = "file-medical", #cambiar el icono
+  color = "primary",
+  value = mean_costo_opertativo
+)
+```
+
+
+```{r}
+#| content: valuebox
+#| title: "Numero total de eventos"
+
+list(
+  icon = "file-medical",#cambiar el icono
+  color = "primary",
+  value = num_varad
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Dia con mayor evento"
+
+list(
+  icon = "file-medical",#cambiar el icono
+  color = "primary",
+  value = dia_repor_mayor_eventos
+)
+```
+
+### Column {width="70%"}
+```{r}
+#| title: Rutas con mayor numero de fallas
+
+df %>% 
+    group_by(ruta) %>% 
+    summarise(frec = n()) %>% 
+    arrange(desc(frec)) %>% 
+    ggplot(aes(x = reorder(ruta,frec) ,y= frec))+
+    geom_bar(stat = "identity", position = "dodge") +
+    coord_flip()+
+  theme_light() +
+  xlab("Numero de fallas") +
+  ylab("Rutas")
+
+```
+
+
+## Row {height="40%"}
+
+```{r}
+#| title: Top 5 de las fallas mas frecuentes en las rutas en subsistema
+ 
+df %>% 
+    group_by(subsistema) %>% 
+    summarise(n = n()) %>% 
+    arrange(desc(n)) %>%
+    mutate(rank = 1:n()) %>%
+  filter(rank <= 10) %>% 
+  rename(tipo_de_fallas= subsistema)
+
+```
+
+## Row {height="40%"}
+```{r}
+#| title: Top 5 de las fallas mas frecuentes en las rutas en sistema
+#| 
+df %>% 
+    group_by(sistema) %>% 
+    summarise(n = n()) %>% 
+    arrange(desc(n)) %>%
+    mutate(rank = 1:n()) %>%
+  filter(rank <= 10) %>% 
+  rename(tipo_de_fallas= sistema)
+```
+
+```{r}
+#quines se barran mas segun categorias
+df %>% 
+  group_by(tipologia) %>% 
+  summarise(frec = n()) %>% 
+  mutate(total = sum(frec),
+         porc = frec/total*100) %>% 
+  select(tipologia,porc) %>%
+  ggplot(aes(y=porc, fill=tipologia))+
+  geom_bar(stat = "identity",
+           color="white")+
+  coord_polar()
+
+```
+
+
+# Perdidas economicas
+
+# analisis del modelo lineal
