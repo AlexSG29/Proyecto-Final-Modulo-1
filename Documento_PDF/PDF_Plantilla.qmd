@@ -36,7 +36,7 @@ colorlinks=true,
 linkcolor=blue,
 filecolor=magenta,
 urlcolor=cyan,
-pdftitle={JORGE LUIS VILLALBA},
+pdftitle={Proyecto de Módulo},
 bookmarks=true,
 pdfpagemode=FullScreen,
 }
@@ -55,9 +55,11 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, comment = FALSE, warning = 
 
 
 
+
 \title{
 \LARGE
 The Impact of SITM Vehicle Breakdowns on Economic Losses and Perceived Service Quality in Cartagena\\[0.5em]
+\large % Cambia el tamaño aquí según lo que prefieras
 Impacto de las varadas de vehículos del SITM en las pérdidas económicas y la percepción del servicio en Cartagena
 }
 
@@ -168,7 +170,123 @@ This study aims to comprehensively analyze these failures within the SITM, start
 
 Finally, the study seeks to quantify the economic losses resulting from breakdowns, highlight the main areas of impact, and assess the negative consequences for users, with the ultimate goal of enhancing transparency and rebuilding trust in the system.
 
+Based on this context, the following research question arises:
+What is the impact of vehicle breakdowns in Cartagena’s Integrated System of Mass Transit (SITM) on the operating company’s economic losses and on the perceived quality of service by users?
+
 ## 2. Data
+
+The collected data corresponds to a representative sample of buses and routes within the city's Integrated Mass Transit System (SITM); therefore, it does not cover the system in its entirety. Additionally, the analysis is limited to a six-month period. The information was provided by one of the system’s operating companies. Both qualitative and quantitative data were gathered, although the latter predominates. Below is a detailed summary of the types and amounts of the final data to be used in the analysis.
+
+```{r}
+# Cargar las librerías necesarias
+library(readxl)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Cargar los datos desde el archivo Excel
+data <- read_excel("../Dashboard_Presentacion/df_final.xlsx", sheet = "Sheet1")
+
+# Obtener los tipos de variables
+variable_types <- sapply(data, class)
+
+# Calcular la cantidad de variables por tipo, ajustando las observaciones
+num_quanti <- sum(sapply(data, is.numeric)) - 1  # Restamos year_falla, que ahora es Date/Time
+num_quali <- sum(sapply(data, is.character)) - 2  # Restamos varado y afectacion_al_usuario, que son booleanas
+num_dates <- sum(sapply(data, inherits, what = c("POSIXct", "POSIXt"))) + 1  # Agregamos year_falla
+num_boolean <- 2  # Contamos varado y afectacion_al_usuario como booleanas
+
+# Crear un resumen con la cantidad de variables por tipo
+summary_table <- data.frame(
+  Type = c("Quantitative", "Qualitative", "Date/Time", "Boolean"),
+  Count = c(num_quanti, num_quali, num_dates, num_boolean)
+)
+
+# Mostrar el resumen en el PDF como tabla
+kable(
+  summary_table, 
+  format = "latex", 
+  caption = "Number of Variables by Type", 
+  label = "summary-table"
+) %>%
+  kable_styling(position = "center", latex_options = "H")
+```
+```{r}
+# Listar las variables por tipo
+quanti_vars <- names(data)[sapply(data, is.numeric) & names(data) != "year_falla"]   # Variables cuantitativas
+quali_vars <- names(data)[sapply(data, is.character) & !(names(data) %in% c("varado", "afectacion_al_usuario"))] # Variables cualitativas
+date_vars <- c(names(data)[sapply(data, inherits, what = c("POSIXct", "POSIXt"))], "year_falla")  # Variables de tipo fecha
+boolean_vars <- c("varado", "afectacion_al_usuario")  # Variables booleanas
+
+# Crear una tabla con las variables por tipo y una breve descripción
+variable_list <- data.frame(
+  Type = c(
+    rep("Quantitative", length(quanti_vars)),
+    rep("Qualitative", length(quali_vars)),
+    rep("Date/Time", length(date_vars)),
+    rep("Boolean", length(boolean_vars))
+  ),
+  Variable = c(quanti_vars, quali_vars, date_vars, boolean_vars),
+  Description = c(
+    # Descripciones para variables cuantitativas
+    "Cost associated with vehicle downtime",
+    "Maximum number of trips made",
+    "Minimum number of trips made",
+    "Total number of users per route",
+    "Delay time in minutes or hours",
+    "Day when the vehicle was stranded",
+    "Minimum number of passengers",
+    "Maximum number of passengers",
+    "Cost of downtime (minimum estimate)",
+    "Cost of downtime (maximum estimate)",
+    
+    # Descripciones para variables cualitativas
+    "Route number or identifier",
+    "Location where the failure occurred",
+    "Vehicle identifier or license plate",
+    "Category or typology of the failure",
+    "Distance traveled before the failure",
+    "Name of the vehicle operator",
+    "Time of the incident",
+    "Details or notes about the incident",
+    "Decision taken regarding the failure",
+    "Work order associated with the failure",
+    "Responsible technician",
+    "System involved in the failure",
+    "Subsystem involved in the failure",
+    "Reference component causing the failure",
+    "Component affected",
+    "Adjective describing the failure",
+    "Consequence of the failure",
+    "State or status of the failure resolution",
+    "Additional observations",
+    "Whether the day was a business day or not",
+    "Month in which the failure occurred",
+    "Additional qualitative variable 1",  # Placeholder description
+    "Additional qualitative variable 2",  # Placeholder description
+    
+    # Descripciones para variables de tipo fecha/hora
+    "Year in which the failure occurred",
+    "Date when the failure occurred",
+    "Datetime of the delay caused by the failure",
+    "New date assigned after the failure",
+    
+    # Descripciones para variables booleanas
+    "Whether the vehicle was stranded (Yes/No)",
+    "Whether the user was affected (Yes/No)"
+  )
+)
+
+# Mostrar la lista de variables en el PDF como tabla
+kable(
+  variable_list, 
+  format = "latex", 
+  caption = "List of Variables with Descriptions", 
+  label = "variable-descriptions"
+) %>%
+  kable_styling(position = "center", latex_options = "H") 
+```
+
 
 ## 3. Materials and Methods
  
