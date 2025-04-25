@@ -20,6 +20,7 @@ library(forcats)
 library(readxl)
 library(scales)
 library(stringr)
+library(flextable)
 ```
 
 ```{r,echo=FALSE}
@@ -106,7 +107,7 @@ list(
 )
 ```
 
-### Column {width="70%"}
+## Column {width="40%"}
 ```{r}
 #| title: Rutas con mayor numero de fallas
 
@@ -124,7 +125,7 @@ df %>%
 ```
 
 
-## Row {height="40%"}
+## Row {height="40%" .tabset}
 
 ```{r}
 #| title: Top 5 de las fallas mas frecuentes en las rutas en subsistema
@@ -135,11 +136,12 @@ df %>%
     arrange(desc(n)) %>%
     mutate(rank = 1:n()) %>%
   filter(rank <= 10) %>% 
-  rename(tipo_de_fallas= subsistema)
+  rename(tipo_de_fallas= subsistema)%>% 
+  flextable::flextable() 
 
 ```
 
-## Row {height="40%"}
+## Row {height="40%" .tabset}
 ```{r}
 #| title: Top 5 de las fallas mas frecuentes en las rutas en sistema
 #| 
@@ -149,23 +151,11 @@ df %>%
     arrange(desc(n)) %>%
     mutate(rank = 1:n()) %>%
   filter(rank <= 10) %>% 
-  rename(tipo_de_fallas= sistema)
+  rename(tipo_de_fallas= sistema) %>% 
+  flextable::flextable()
 ```
 
-```{r}
-#quines se barran mas segun categorias
-df %>% 
-  group_by(tipologia) %>% 
-  summarise(frec = n()) %>% 
-  mutate(total = sum(frec),
-         porc = frec/total*100) %>% 
-  select(tipologia,porc) %>%
-  ggplot(aes(y=porc, fill=tipologia))+
-  geom_bar(stat = "identity",
-           color="white")+
-  coord_polar()
 
-```
 
 
 # Perdidas economicas
