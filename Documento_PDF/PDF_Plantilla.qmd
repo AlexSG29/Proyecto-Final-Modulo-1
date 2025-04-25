@@ -241,11 +241,12 @@ variable_list <- data.frame(
     "Cost of downtime (maximum estimate)",
     
     # Descripciones para variables cualitativas
+    "Report System by the operating area",
     "Route number or identifier",
     "Location where the failure occurred",
     "Vehicle identifier or license plate",
     "Category or typology of the failure",
-    "Distance traveled before the failure",
+    "Mileage at the time of the failure",
     "Name of the vehicle operator",
     "Time of the incident",
     "Details or notes about the incident",
@@ -262,14 +263,13 @@ variable_list <- data.frame(
     "Additional observations",
     "Whether the day was a business day or not",
     "Month in which the failure occurred",
-    "Additional qualitative variable 1",  # Placeholder description
-    "Additional qualitative variable 2",  # Placeholder description
+    "Time when it resumes operation.",
     
     # Descripciones para variables de tipo fecha/hora
-    "Year in which the failure occurred",
     "Date when the failure occurred",
     "Datetime of the delay caused by the failure",
     "New date assigned after the failure",
+    "Year in which the failure occurred",
     
     # Descripciones para variables booleanas
     "Whether the vehicle was stranded (Yes/No)",
