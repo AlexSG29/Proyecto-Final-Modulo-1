@@ -219,7 +219,7 @@ df %>% group_by(tipologia,year_falla) %>%
 ```
 
 # analisis del modelo lineal
-```{r}
+```{r,echo= FALSE}
 df_lm <-df %>% 
   group_by(year_falla,costo_x_perdida,costo_opot_max) %>% 
   summarise(frec = n())

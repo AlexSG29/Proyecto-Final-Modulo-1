@@ -1,0 +1,447 @@
+---
+title: "Proyecto EDA"
+author: "Docente: Jorge Luis Villalba Acevedo"
+format: 
+  dashboard:
+    theme: united
+    logo: Imgs/LFCBUTB2.png
+    orientation: rows
+    scrolling: true
+execute: 
+  echo: false
+  warning: false
+  message: false
+  comment: false
+self-contained: TRUE  
+---
+
+```{r, echo=FALSE}
+library(dplyr)
+library(ggplot2)
+library(forcats)
+library(readxl)
+library(scales)
+library(stringr)
+library(flextable)
+library(plotly)
+library(shiny)
+library(skimr)
+library(htmltools)
+
+df <- read_xlsx("df_final.xlsx")
+
+mean_dias_varad <- df %>% 
+  filter(varado == "SI") %>% 
+  summarise(mean_dias_vara = round(mean(dia_varados, na.rm = TRUE))) %>% 
+  pull(mean_dias_vara)
+
+mean_costo_opertativo <- dollar(mean(df$costo_x_perdida), big.mark = ".")
+num_varad <- formatC(length(df$ruta), big.mark = ".")
+
+dia_repor_mayor_eventos <- df %>% 
+  group_by(dia_habil) %>%
+  summarise(frecuencia = n()) %>% 
+  arrange(desc(frecuencia)) %>% 
+  mutate(rankig = 1:n(), dia_habil = str_to_sentence(dia_habil)) %>% 
+  filter(rankig == 1) %>%
+  pull(dia_habil)
+```
+
+# Presentación
+
+## Row {height=20%}
+
+### Estudio del SITM de Cartagena {.g-col-12}
+
+<div style="text-align: center; margin-bottom: 20px;">
+<h3>Sistema Integrado de Transporte Masivo - Análisis de Impacto de Varadas Vehiculares</h3>
+<p><em>Un estudio sobre las implicaciones económicas y de servicio</em></p>
+</div>
+
+## Row {height=40%}
+
+### Integrantes {.g-col-6}
+
+<div style="margin: 15px 0;">
+<h4 style="text-align: center; margin-bottom: 25px;">Universidad Tecnológica de Bolívar, Colombia</h4>
+
+<table style="width: 100%; border-collapse: separate; border-spacing: 0 15px;">
+  <tr>
+    <td style="padding: 10px; background-color: #f7f7f7; border-radius: 6px;">
+      <p><strong>Alexander Sánchez González</strong><br>
+      Email: sancheza@utb.edu.co<br>
+      ID: T00054514</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px; background-color: #f7f7f7; border-radius: 6px;">
+      <p><strong>Amparo Hazbun Martinez</strong><br>
+      Email: ahazbun@utb.edu.co<br>
+      ID: T000XXXXX</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px; background-color: #f7f7f7; border-radius: 6px;">
+      <p><strong>Maria Mercedes Romero Racine</strong><br>
+      Email: mracine@utb.edu.co<br>
+      ID: T000XXXXX</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px; background-color: #f7f7f7; border-radius: 6px;">
+      <p><strong>Misael Jose Pastrana Fuentes</strong><br>
+      Email: pastranam@utb.edu.co<br>
+      ID: T000XXXXX</p>
+    </td>
+  </tr>
+</table>
+</div>
+
+### Información del proyecto {.g-col-6}
+
+<div style="display: flex; flex-direction: column; height: 100%;">
+<div style="flex: 1; margin: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+<h4>Antecedentes</h4>
+<p>Este estudio examina el impacto de las varadas de vehículos dentro del Sistema Integrado de Transporte Masivo (SITM) de Cartagena en las pérdidas económicas y la percepción de calidad del servicio.</p>
+</div>
+
+<div style="flex: 1; margin: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+<h4>Método</h4>
+<ul>
+  <li>Análisis de registros de varadas</li>
+  <li>Análisis de pérdidas económicas</li>
+  <li>Evaluación del impacto por ruta y ubicación</li>
+  <li>Análisis estadístico</li>
+</ul>
+</div>
+
+<div style="flex: 1; margin: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+<h4>Palabras clave</h4>
+<p>Varadas, Pérdidas económicas, Calidad del servicio, Usuarios, SITM (Sistema Integrado de Transporte Masivo).</p>
+</div>
+</div>
+
+# Introducción
+
+## Row {height=25%}
+
+### Contexto {.g-col-12}
+
+<div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; margin-bottom: 20px;">
+<p><strong>El Sistema Integrado de Transporte Masivo (SITM)</strong> en la ciudad de Cartagena juega un papel fundamental en la movilidad urbana. Su correcto funcionamiento depende en gran medida del estado de la flota y la eficiencia operativa de los vehículos.</p>
+
+<p><strong>Uno de los desafíos más recurrentes</strong> que enfrentan estos sistemas son las varadas de vehículos o interrupciones operativas, que generan impactos significativos tanto para la empresa operadora como para los usuarios.</p>
+
+<p><strong>Estas varadas conllevan costos operativos y de mantenimiento</strong> asociados con tiempo improductivo. Para los usuarios, tales fallas se traducen en retrasos, incomodidad y pérdida de confianza en el sistema.</p>
+</div>
+
+## Row {height=25%}
+
+### Objetivos {.g-col-6}
+
+<div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; height: 90%;">
+<h4 style="text-align: center;">Objetivo general</h4>
+<p>Analizar el impacto de las varadas de los vehículos del Sistema Integrado de Transporte Masivo (SITM) de la ciudad de Cartagena en las pérdidas económicas de la empresa operadora y en la calidad del servicio percibida por los usuarios.</p>
+
+<h4 style="text-align: center;">Objetivos específicos</h4>
+<ol>
+  <li>Identificar las rutas y ubicaciones con mayor frecuencia y costos de varadas.</li>
+  <li>Determinar las principales causas operativas asociadas a las varadas y su relación con la satisfacción del usuario.</li>
+  <li>Cuantificar las pérdidas económicas generadas por las varadas de los vehículos del SITM.</li>
+</ol>
+</div>
+
+### Propósito del estudio {.g-col-6}
+
+<div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; height: 90%;">
+<p><strong>Este estudio busca analizar de manera integral</strong> estas fallas dentro del SITM, comenzando con la identificación de los costos asociados, así como las rutas y ubicaciones donde ocurren con mayor frecuencia, con el fin de identificar patrones operativos críticos.</p>
+
+<p><strong>Finalmente, el estudio busca:</strong></p>
+<ul>
+  <li>Cuantificar las pérdidas económicas resultantes de las varadas</li>
+  <li>Destacar las principales áreas de impacto</li>
+  <li>Evaluar las consecuencias negativas para los usuarios</li>
+  <li>Mejorar la transparencia y reconstruir la confianza en el sistema</li>
+</ul>
+</div>
+
+## Row {height=25%}
+
+### Metodología {.g-col-6}
+
+<div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; height: 90%; display: flex; flex-direction: column; justify-content: space-between;">
+<div>
+<h4 style="text-align: center; margin-bottom: 15px;">Enfoque del estudio</h4>
+<p>Este estudio utiliza un enfoque mixto que combina análisis cuantitativo de datos operativos con evaluación cualitativa del impacto en usuarios.</p>
+</div>
+
+<div>
+<h4 style="text-align: center; margin-bottom: 15px;">Fases metodológicas</h4>
+<ol style="margin-bottom: 0;">
+  <li>Recopilación y procesamiento de registros de varadas</li>
+  <li>Análisis estadístico de frecuencias y patrones temporales</li>
+  <li>Evaluación económica de impactos por rutas y ubicaciones</li>
+  <li>Correlación entre fallos técnicos y percepción de servicio</li>
+</ol>
+</div>
+</div>
+
+### Caso de estudio {.g-col-6}
+
+<div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; height: 90%;">
+<p>El Sistema Integrado de Transporte Masivo (SITM) de Cartagena representa un caso de estudio relevante debido a:</p>
+
+<ul>
+  <li>Es un componente crítico de la movilidad urbana en esta ciudad turística</li>
+  <li>Presenta desafíos operativos recurrentes que afectan su desempeño</li>
+  <li>El impacto de las varadas vehiculares tiene consecuencias económicas y sociales medibles</li>
+  <li>Ofrece un marco práctico para analizar la relación entre eficiencia operativa y satisfacción del usuario</li>
+</ul>
+</div>
+
+## Row {height=25%}
+
+### Resultados esperados {.g-col-6}
+
+<div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; height: 90%;">
+<h4 style="text-align: center; margin-bottom: 15px;">Principales hallazgos</h4>
+
+<p>Se espera identificar:</p>
+<ul>
+  <li>Patrones temporales de las varadas (días, horas, estacionalidad)</li>
+  <li>Rutas con mayor incidencia de interrupciones operativas</li>
+  <li>Causas técnicas más frecuentes de las varadas</li>
+  <li>Costos directos e indirectos para la operadora y usuarios</li>
+  <li>Correlación entre incidencia de varadas y satisfacción del usuario</li>
+</ul>
+</div>
+</div>
+
+# Descripción de los datos
+
+## Row {height="auto"}
+### Column {width="auto"}
+#### Resumen del conjunto de datos
+```{r}
+ skim(df)
+
+```
+
+# Materiales
+
+
+## Row
+Se realizó un estudio transversal descriptivo sobre una base  de fallas en vehículos del Sistema Integrado de Transporte Masivo (SITM) de la ciudad de Cartagena. El análisis abarcó desde el 1 de septiembre de 2024 hasta el 1 de agosto de 2025.  por su parte, para las variables cualitativas se estimaron frecuencias absolutas y relativas y en el caso de las variables cuantitativas estas fueron resumidas a partir del uso de medias de tendencia central y dispersión particular, se usaron medias,frecuencias relativas y absolutas. La estimación del costo de oportunidad fue calculada teniendo en cuenta el numero de personas maxima que los vehiculos pueden trasportar y multiplicado por el costo total de la tarija a 2024 que era de $3.000 pesos.
+
+# Resultados y Discusión
+
+## Row {height="15%"}
+### Column {width="25%"}
+```{r}
+#| content: valuebox
+#| title: "Promedio días varados"
+#| height: 120px
+list(icon = "calendar-x", color = "primary", value = mean_dias_varad)
+
+```
+
+### Column {width="25%"}
+```{r}
+#| content: valuebox
+#| title: "Costo promedio varadas"
+#| height: 120px
+list(icon = "dollar-sign", color = "success", value = mean_costo_opertativo)
+
+```
+
+### Column {width="25%"}
+```{r}
+#| content: valuebox
+#| title: "Total eventos"
+#| height: 120px
+list(icon = "bar-chart", color = "info", value = num_varad)
+
+```
+
+### Column {width="25%"}
+```{r}
+#| content: valuebox
+#| title: "Día con más eventos"
+#| height: 120px
+list(icon = "calendar-event", color = "danger", value = dia_repor_mayor_eventos)
+
+```
+
+## Row {height="auto"}
+### Column {width="33%"}
+```{r, fig.height=3.5, fig.width=5}
+# Rutas con mayor número de fallas
+p1 <- df %>% 
+  group_by(ruta) %>% 
+  summarise(frec = n()) %>% 
+  arrange(desc(frec)) %>% 
+  head(8) %>%
+  ggplot(aes(x = reorder(ruta, frec), y = frec, text = paste("Ruta:", ruta, "<br>Fallas:", frec))) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 10), axis.text = element_text(size = 9), plot.title = element_text(size = 11)) +
+  labs(x = "Rutas", y = "Número de fallas", title = "Top 8 rutas con más fallas")
+
+ggplotly(p1, tooltip = "text") %>% layout(margin = list(l = 90, r = 20, b = 50, t = 50))
+```
+
+### Column {width="33%"}
+```{r, fig.height=3.5, fig.width=5}
+# Distribución de fallas por día de la semana
+p2 <- df %>%
+  group_by(dia_habil) %>%
+  summarise(total = n()) %>%
+  ggplot(aes(x = reorder(dia_habil, total), y = total, text = paste("Día:", dia_habil, "<br>Fallas:", total))) +
+  geom_bar(stat = "identity", fill = "orange") +
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 10), axis.text = element_text(size = 9), plot.title = element_text(size = 11)) +
+  labs(x = "Día de la semana", y = "Número de fallas", title = "Fallas por día de la semana")
+
+ggplotly(p2, tooltip = "text") %>% layout(margin = list(l = 90, r = 20, b = 50, t = 50))
+```
+
+### Column {width="33%"}
+```{r, fig.height=3.5, fig.width=5}
+# Costo promedio según estado de varado
+p4 <- df %>%
+  group_by(varado) %>%
+  summarise(costo_promedio = mean(costo_x_perdida, na.rm = TRUE)) %>%
+  ggplot(aes(x = varado, y = costo_promedio, fill = varado, text = paste("Condición:", varado, "<br>Costo promedio:", dollar(costo_promedio, big.mark = ".")))) +
+  geom_bar(stat = "identity") +
+  theme_light() +
+  theme(axis.title = element_text(size = 10), axis.text = element_text(size = 9), plot.title = element_text(size = 11)) +
+  scale_y_continuous(labels = dollar_format(big.mark = ".")) +
+  scale_fill_manual(values = c("NO" = "skyblue", "SI" = "tomato")) +
+  labs(x = "Varado", y = "Costo promedio ($)", title = "Costo por condición de varado")
+
+ggplotly(p4, tooltip = "text") %>% layout(showlegend = FALSE, margin = list(l = 70, r = 20, b = 50, t = 50))
+```
+
+## Row {height="auto"}
+### Column {width="33%"}
+```{r, fig.height=3.5, fig.width=5}
+# Sistemas con más fallas reportadas
+p3 <- df %>% 
+  group_by(sistema) %>% 
+  summarise(frec = n()) %>% 
+  arrange(desc(frec)) %>% 
+  head(8) %>%
+  ggplot(aes(x = reorder(sistema, frec), y = frec, text = paste("Sistema:", sistema, "<br>Fallas:", frec))) +
+  geom_bar(stat = "identity", fill = "darkgreen") +
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 10), axis.text = element_text(size = 9), plot.title = element_text(size = 11)) +
+  labs(x = "Sistema", y = "Número de fallas", title = "Top 8 sistemas con más fallas")
+
+ggplotly(p3, tooltip = "text") %>% layout(margin = list(l = 120, r = 20, b = 50, t = 50))
+```
+
+### Column {width="33%"}
+```{r, fig.height=3.5, fig.width=5}
+# Subsistemas con mayor costo operativo (1-4)
+p5a <- df %>%
+  group_by(subsistema) %>%
+  summarise(costo_promedio = mean(costo_x_perdida, na.rm = TRUE)) %>%
+  arrange(desc(costo_promedio)) %>%
+  head(4) %>%
+  ggplot(aes(x = reorder(subsistema, costo_promedio), y = costo_promedio, text = paste("Subsistema:", subsistema, "<br>Costo promedio:", dollar(costo_promedio, big.mark = ".")))) +
+  geom_bar(stat = "identity", fill = "purple") +
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 10), axis.text = element_text(size = 9), plot.title = element_text(size = 11)) +
+  scale_y_continuous(labels = dollar_format(big.mark = ".")) +
+  labs(x = "Subsistema", y = "Costo promedio ($)", title = "Top 4 subsistemas más costosos")
+
+ggplotly(p5a, tooltip = "text") %>% layout(margin = list(l = 150, r = 20, b = 50, t = 50))
+```
+
+### Column {width="33%"}
+```{r, fig.height=3.5, fig.width=5}
+# Subsistemas con mayor costo operativo (5-8)
+p5b <- df %>%
+  group_by(subsistema) %>%
+  summarise(costo_promedio = mean(costo_x_perdida, na.rm = TRUE)) %>%
+  arrange(desc(costo_promedio)) %>%
+  slice(5:8) %>%
+  ggplot(aes(x = reorder(subsistema, costo_promedio), y = costo_promedio, text = paste("Subsistema:", subsistema, "<br>Costo promedio:", dollar(costo_promedio, big.mark = ".")))) +
+  geom_bar(stat = "identity", fill = "purple") +
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 10), axis.text = element_text(size = 9), plot.title = element_text(size = 11)) +
+  scale_y_continuous(labels = dollar_format(big.mark = ".")) +
+  labs(x = "Subsistema", y = "Costo promedio ($)", title = "Siguiente 4 subsistemas más costosos")
+
+ggplotly(p5b, tooltip = "text") %>% layout(margin = list(l = 150, r = 20, b = 50, t = 50))
+```
+
+## Row {height="auto"}
+### Column {width="50%"}
+```{r}
+df %>% 
+  group_by(subsistema) %>% 
+  summarise(n = n()) %>% 
+  arrange(desc(n)) %>% 
+  mutate(rank = 1:n()) %>% 
+  filter(rank <= 10) %>% 
+  rename(`Tipo de fallas` = subsistema, Frecuencia = n) %>%
+  select(-rank) %>%
+  flextable() %>% 
+  fontsize(size = 10, part = "all") %>%
+  autofit() %>%
+  width(j = 1, width = 3) %>%
+  set_caption("Tabla 2: Top 10 de fallas por subsistema")
+```
+
+### Column {width="50%"}
+```{r}
+df %>% 
+  group_by(sistema) %>% 
+  summarise(n = n()) %>% 
+  arrange(desc(n)) %>% 
+  mutate(rank = 1:n()) %>% 
+  filter(rank <= 10) %>% 
+  rename(`Tipo de fallas` = sistema, Frecuencia = n) %>%
+  select(-rank) %>%
+  flextable() %>% 
+  fontsize(size = 10, part = "all") %>%
+  autofit() %>%
+  width(j = 1, width = 3) %>%
+  set_caption("Tabla 3: Top 10 de fallas por sistema")
+```
+
+
+# Resultados y Discusión 
+
+## Row {height="800px"}
+
+```{r}
+df %>% filter(!is.na(ubicacion)) %>% 
+    group_by(ubicacion, ruta) %>% 
+    summarise(frec = n()) %>% 
+    arrange(desc(frec)) %>% 
+    ggplot(aes(x = reorder(ubicacion, frec), y = frec)) +
+    geom_bar(stat = "identity", position = "dodge", fill = "orange") +
+    coord_flip() +
+    theme_classic() +
+    labs(x = "Numero de fallas", y = "Ubicación") +
+    theme(axis.text.x = element_text(size = 12),            
+          axis.text.y = element_text(size = 5))
+```
+
+
+
+# Conclusiones y Recomendaciones
+
+## Row
+1- Perspectiva financiera: las interrupciones en el servicio generan costos elevados, con un costo mínimo promedio de **$20.519.571 pesos colombianos por día varado**, alcanzando hasta **$43.889.084 pesos** en los peores escenarios. Esto no solo representa un riesgo financiero considerable para la empresa, sino que también implica una pérdida diaria estimada de **1.545 usuarios**, afectando la sostenibilidad del sistema y la confianza en el usuario.
+
+2- Perspectiva operativa: Los problemas más recurrentes afectan a los buses son  **aire comprimido (32%)** y **el motor (23%)**, así como subsistemas esenciales como **los frenos (16%)** y **el sistema de refrigeración (16%)**. la alta incidencia  de fallas se presenta en los vehículos de tipologia **Padron (68%)** lo que sugiere que ciertos modelos requieren **mayor mantenimiento o actualización** para reducir la frecuencia de varadas y mejorar la confiabilidad del sistema. Además, las fallas en el **sistema de aire comprimido (18%)** y los riesgos derivados de **altas temperaturas en los componentes** y **el motor (14%)** destacan como factores clave que deben ser abordados para mejorar la eficiencia del servicio, reducir la afectación  al servicio y mejor aumentar las ganancias producto del servicio. 
+
+3- Perspectiva Usuario: las fallas ocurren con mayor frecuencia en puntos clave como **el Patio Portal (37%)**, **la Estación Bodeguita (20%)** y **la Terminal (5.9%)**, y  estas suelen presentarse en horarios críticos entre **las 5:30 p. m** y **las 7:00 p. m**.
