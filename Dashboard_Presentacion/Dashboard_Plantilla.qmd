@@ -13,6 +13,7 @@ execute:
   comment: false
 self-contained: TRUE  
 ---
+
 ```{r,echo=FALSE}
 library(dplyr)
 library(ggplot2)
@@ -21,6 +22,7 @@ library(readxl)
 library(scales)
 library(stringr)
 library(flextable)
+library(lubridate)
 ```
 
 ```{r,echo=FALSE}
@@ -52,15 +54,12 @@ dia_repor_mayor_eventos <-df %>%
     pull(dia_habil)
 ```
 
-
 # Analisis exploratorio de la data
 
-
-
-
-
 # Analisis de patrones y causas
-## Row
+
+## Row {height="20%"}
+
 ```{r}
 #| content: valuebox
 #| title: "Promedio de dias varados"
@@ -72,7 +71,6 @@ list(
 )
 ```
 
-
 ```{r}
 #| content: valuebox
 #| title: "costo promedio de las varadas"
@@ -83,7 +81,6 @@ list(
   value = mean_costo_opertativo
 )
 ```
-
 
 ```{r}
 #| content: valuebox
@@ -107,8 +104,9 @@ list(
 )
 ```
 
-## Column {width="40%"}
-```{r}
+## Column
+
+```{r,echo= FALSE}
 #| title: Rutas con mayor numero de fallas
 
 df %>% 
@@ -116,48 +114,116 @@ df %>%
     summarise(frec = n()) %>% 
     arrange(desc(frec)) %>% 
     ggplot(aes(x = reorder(ruta,frec) ,y= frec))+
-    geom_bar(stat = "identity", position = "dodge") +
-    coord_flip()+
-  theme_light() +
-  xlab("Numero de fallas") +
-  ylab("Rutas")
+    geom_bar(stat = "identity", position = "dodge", fill = "orange")+
+    coord_flip() +
+    theme_classic()+
+    xlab("Numero de fallas") +
+    ylab("Rutas")
 
 ```
 
-
-## Row {height="40%" .tabset}
-
-```{r}
-#| title: Top 5 de las fallas mas frecuentes en las rutas en subsistema
+```{r,echo=FALSE}
+#| title: Top 5 de las fallas mas frecuentes en las rutas
  
 df %>% 
-    group_by(subsistema) %>% 
+    group_by(sistema,subsistema) %>% 
     summarise(n = n()) %>% 
     arrange(desc(n)) %>%
-    mutate(rank = 1:n()) %>%
-  filter(rank <= 10) %>% 
-  rename(tipo_de_fallas= subsistema)%>% 
-  flextable::flextable() 
+    head(5) %>%  
+  select(sistema,subsistema,n) %>% 
+  flextable() %>% 
+  set_header_labels(
+   sistema = "Fallas en el sistema",
+   subsistema = "Fallas en el subsistema",
+   n = "Numero de ocurrencias")
 
 ```
 
-## Row {height="40%" .tabset}
-```{r}
-#| title: Top 5 de las fallas mas frecuentes en las rutas en sistema
-#| 
-df %>% 
-    group_by(sistema) %>% 
-    summarise(n = n()) %>% 
-    arrange(desc(n)) %>%
-    mutate(rank = 1:n()) %>%
-  filter(rank <= 10) %>% 
-  rename(tipo_de_fallas= sistema) %>% 
-  flextable::flextable()
+```{r,echo=FALSE}
+#| title: tendencia de fallas por fecha 
+ 
+df %>%
+    mutate(fecha = as.Date(fecha)) %>%
+    group_by(fecha) %>%
+    summarise(n = n()) %>%
+    ggplot(aes(x = fecha, y = n)) +
+    geom_line(color = "orange") +  
+    scale_x_date(date_labels = "%Y-%m-%d", date_breaks = "1 week") +  
+    theme_classic() +
+    labs(x = "Fecha", y = "Cantidad de registros") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))  
+
 ```
 
+# descripcion de costo
+## Column
+```{r, echo= FALSE}
+#| title: tendencia del costos de mantenimiento en 2024 
 
+df %>% filter(year_falla == 2024) %>% 
+    mutate(mes_falla = month(fecha, label = TRUE)) %>%  
+    group_by(year_falla, mes_falla) %>%
+    summarise(total_costo = sum(costo_x_perdida, na.rm = TRUE), .groups = "drop") %>%
+    ggplot(aes(x = mes_falla, y = total_costo, group = year_falla, color = as.factor(year_falla))) +
+    geom_line(size = 1) +  
+    geom_point() +  
+    theme_classic() +
+    labs(x = "Mes", y = "Costo Total", color = "Año") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+```
 
+```{r, echo= FALSE}
+#| title: tendencia del costos de mantenimiento en 2025 
 
-# Perdidas economicas
+df %>% filter(year_falla == 2025) %>% 
+    mutate(mes_falla = month(fecha, label = TRUE)) %>%  
+    group_by(year_falla, mes_falla) %>%
+    summarise(total_costo = sum(costo_x_perdida, na.rm = TRUE), .groups = "drop") %>%
+    ggplot(aes(x = mes_falla, y = total_costo, group = year_falla, color = as.factor(year_falla))) +
+    geom_line(size = 1) + 
+    geom_point() +
+    theme_classic() +
+    labs(x = "Mes", y = "Costo Total", color = "Año") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+```
+
+## Row
+
+```{r,echo= FALSE}
+#| title: tiplogia
+ 
+df %>% group_by(tipologia,year_falla) %>% 
+    summarise(total_costo_x_perdida = sum(costo_x_perdida)/10000000) %>% 
+    arrange(desc(total_costo_x_perdida)) %>% 
+    ggplot(aes(x = reorder(tipologia,total_costo_x_perdida),y= total_costo_x_perdida))+
+    geom_bar(stat = "identity", position = "dodge", fill = "orange")+
+    theme_classic()+
+    xlab("vehiculos") +
+    ylab("costo")
+
+```
+
+```{r,echo= FALSE}
+#| title: vehiculo
+
+ df %>% group_by(vehiculo) %>% 
+    summarise(total_costo_x_perdida = sum(costo_x_perdida)/10000000) %>% 
+    arrange(desc(total_costo_x_perdida)) %>%
+    head(10) %>% 
+    ggplot(aes(x = reorder(vehiculo,total_costo_x_perdida) ,y= total_costo_x_perdida))+
+    geom_bar(stat = "identity", position = "dodge", fill = "orange")+
+    coord_flip() +
+    theme_classic()+
+    xlab("Numero de fallas") +
+    ylab("vehiculos")
+```
 
 # analisis del modelo lineal
+```{r}
+df_lm <-df %>% 
+  group_by(year_falla,costo_x_perdida,costo_opot_max) %>% 
+  summarise(frec = n())
+
+summary(lm(costo_opot_max~costo_x_perdida+frec, data = df_lm))
+```
+
