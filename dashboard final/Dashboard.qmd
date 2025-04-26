@@ -29,9 +29,11 @@ library(skimr)
 library(htmltools)
 library(gtsummary)
 
+
  options(scipen = 999)
 
-df <- read_xlsx("df_final.xlsx")
+df <- read_xlsx("df_final.xlsx") %>% 
+  mutate(kilometraje = as.numeric(kilometraje))
 
 mean_dias_varad <- df %>% 
   filter(varado == "SI") %>% 
@@ -431,7 +433,8 @@ df %>% filter(!is.na(ubicacion)) %>%
     theme(axis.text.x = element_text(size = 12),            
           axis.text.y = element_text(size = 5))
 ```
-#Analisis de normalidad
+
+# Analisis de normalidad
 ## Row {height="auto"}
 ### Column {width="33%"}
 ```{r}
@@ -451,6 +454,8 @@ df$costo_x_perdida %>%
 #como es menor a 0.05 los daatos no se distribuyen normalmente
 #p-value < 0.00000000000000022
 ```
+
+
 ### Column {width="33%"}
 ```{r}
 #caja y bigotes
@@ -461,6 +466,7 @@ ggplot(df, aes(x = "", y = costo_opot_min)) +
     ylim(480000, 33000000) 
 ```
 
+### Column {width="33%"}
 ```{r}
 #Gráficos de probabilidad normal
 ggplot(df, aes(sample = costo_opot_min,color= factor(tipologia))) + 
@@ -472,6 +478,7 @@ ggplot(df, aes(sample = costo_opot_min,color= factor(tipologia))) +
 ```
 
 # Análisis bivariado
+### Row {width= "15%",height="20%"}
 ```{r}
 #Elaborar diagramas de dispersión y modelos de regresión entre cada par de variables
 #numéricas.
@@ -487,13 +494,14 @@ GGally::ggpairs(df,
 
 ```
 
+
+### Row {width="30%"}
 ```{r}
 df %>% 
   select_if(is.character) %>% 
   select(afectacion_al_usuario,ruta,
          ubicacion,tipologia,varado,
-         decision,sistema,subsistema,
-         estado,dia_habil,mes_falla) %>% 
+         decision,sistema,mes_falla) %>% 
   tbl_summary(by= ruta, 
     sort = all_categorical() ~ "frequency")
 ```
