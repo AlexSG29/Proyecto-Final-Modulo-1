@@ -82,21 +82,21 @@ dia_repor_mayor_eventos <- df %>%
     <td style="padding: 10px; background-color: #f7f7f7; border-radius: 6px;">
       <p><strong>Amparo Hazbun Martinez</strong><br>
       Email: ahazbun@utb.edu.co<br>
-      ID: T000XXXXX</p>
+      ID: T00050408</p>
     </td>
   </tr>
   <tr>
     <td style="padding: 10px; background-color: #f7f7f7; border-radius: 6px;">
       <p><strong>Maria Mercedes Romero Racine</strong><br>
       Email: mracine@utb.edu.co<br>
-      ID: T000XXXXX</p>
+      ID: T00079867</p>
     </td>
   </tr>
   <tr>
     <td style="padding: 10px; background-color: #f7f7f7; border-radius: 6px;">
       <p><strong>Misael Jose Pastrana Fuentes</strong><br>
       Email: pastranam@utb.edu.co<br>
-      ID: T000XXXXX</p>
+      ID: T00092786</p>
     </td>
   </tr>
 </table>
@@ -446,7 +446,7 @@ ggplot(df, aes(x = costo_x_perdida)) +
   geom_density()+
   xlim(0, quantile(df$costo_x_perdida, 0.95))+
   theme_classic()+
-  labs(x= "costo de operacion", y= "densidad")
+  labs(x= "costo de operacion", y= "densidad",title = "Histograma de costo de operación")
 
 #normalidad
 df$costo_x_perdida %>% 
@@ -462,7 +462,7 @@ df$costo_x_perdida %>%
 ggplot(df, aes(x = "", y = costo_opot_min)) +
                   geom_boxplot(fill = "goldenrod") + 
                   theme_classic()+
-                  labs(y = "Costo de oportunidad minimo")+
+                  labs(y = "Costo de oportunidad minimo",title = "Grafico de cajas y bigotes")+
     ylim(480000, 33000000) 
 ```
 
@@ -490,7 +490,7 @@ nombre_titulos <- c("costo_opot_max" = "Costo maximo de oportunidad",
 GGally::ggpairs(df, 
         columns = c("costo_opot_max","costo_x_perdida","kilometraje"),
         mapping = aes(color = tipologia),
-        labeller = ggplot2::as_labeller(nombre_titulos))
+        labeller = ggplot2::as_labeller(nombre_titulos)) 
 
 ```
 
@@ -511,8 +511,14 @@ df %>%
 # Conclusiones y Recomendaciones
 
 ## Row
-1- Perspectiva financiera: las interrupciones en el servicio generan costos elevados, con un costo mínimo promedio de **$20.519.571 pesos colombianos por día varado**, alcanzando hasta **$43.889.084 pesos** en los peores escenarios. Esto no solo representa un riesgo financiero considerable para la empresa, sino que también implica una pérdida diaria estimada de **1.545 usuarios**, afectando la sostenibilidad del sistema y la confianza en el usuario.
+\section{Análisis desde Diferentes Perspectivas}
 
-2- Perspectiva operativa: Los problemas más recurrentes afectan a los buses son  **aire comprimido (32%)** y **el motor (23%)**, así como subsistemas esenciales como **los frenos (16%)** y **el sistema de refrigeración (16%)**. la alta incidencia  de fallas se presenta en los vehículos de tipologia **Padron (68%)** lo que sugiere que ciertos modelos requieren **mayor mantenimiento o actualización** para reducir la frecuencia de varadas y mejorar la confiabilidad del sistema. Además, las fallas en el **sistema de aire comprimido (18%)** y los riesgos derivados de **altas temperaturas en los componentes** y **el motor (14%)** destacan como factores clave que deben ser abordados para mejorar la eficiencia del servicio, reducir la afectación  al servicio y mejor aumentar las ganancias producto del servicio. 
+A continuación se presenta un resumen del impacto de las varadas en el \textit{Sistema Integrado de Transporte Masivo (SITM)} desde tres enfoques: financiero, operativo y de usuario.
 
-3- Perspectiva Usuario: las fallas ocurren con mayor frecuencia en puntos clave como **el Patio Portal (37%)**, **la Estación Bodeguita (20%)** y **la Terminal (5.9%)**, y  estas suelen presentarse en horarios críticos entre **las 5:30 p. m** y **las 7:00 p. m**.
+\begin{enumerate}
+    \item \textbf{Perspectiva financiera:} Las interrupciones en el servicio generan costos elevados, con un costo mínimo promedio de \textbf{\$20.519.571 pesos colombianos por día varado}, alcanzando hasta \textbf{\$43.889.084 pesos} en los escenarios más críticos. Esto representa no solo un riesgo financiero considerable para la empresa operadora, sino también una pérdida diaria estimada de \textbf{1.545 usuarios}, afectando la sostenibilidad del sistema y la confianza de los usuarios en el servicio.
+
+    \item \textbf{Perspectiva operativa:} Los problemas más frecuentes afectan principalmente los sistemas de \textbf{aire comprimido (32\%)} y \textbf{motor (23\%)}, junto con subsistemas esenciales como \textbf{frenos (16\%)} y \textbf{sistema de refrigeración (16\%)}. La mayor incidencia de fallas se presenta en los vehículos de tipología \textbf{Padron (68\%)}, lo que sugiere que ciertos modelos requieren \textbf{mayores labores de mantenimiento o procesos de actualización tecnológica} para disminuir la frecuencia de varadas y mejorar la confiabilidad del servicio. Adicionalmente, las fallas en el \textbf{sistema de aire comprimido (18\%)} y los riesgos asociados a \textbf{altas temperaturas en los componentes} y en el \textbf{motor (14\%)} se identifican como factores críticos que deben ser abordados para optimizar la operación, minimizar afectaciones al servicio y aumentar la rentabilidad.
+
+    \item \textbf{Perspectiva del usuario:} Las fallas tienden a concentrarse en puntos estratégicos como \textbf{el Patio Portal (37\%)}, \textbf{la Estación Bodeguita (20\%)} y \textbf{la Terminal (5,9\%)}, ocurriendo con mayor frecuencia durante horarios críticos, entre las \textbf{5:30 p.m.} y las \textbf{7:00 p.m.}, momento de alta demanda de servicio por parte de los usuarios.
+\end{enumerate}

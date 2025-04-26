@@ -67,11 +67,11 @@ Impacto de las varadas de vehículos del SITM en las pérdidas económicas y la 
 \author{Alexander Sánchez González \thanks{ Universidad Tecnológica de
 Bolívar, Colombia, e-mail: \url{sancheza@utb.edu.co}, ID: T00054514}
 \and Amparo Hazbun Martinez \thanks{ Universidad Tecnológica de
-Bolívar, Colombia, e-mail: \url{ahazbun@utb.edu.co}, ID: T000XXXXX}
+Bolívar, Colombia, e-mail: \url{ahazbun@utb.edu.co}, ID: T00050408}
 \and Maria Mercedes Romero Racine \thanks{ Universidad Tecnológica de
-Bolívar, Colombia, e-mail: \url{mracine@utb.edu.co}, ID: T000XXXXX}
+Bolívar, Colombia, e-mail: \url{mracine@utb.edu.co}, ID: T00079867}
 \and Misael Jose Pastrana Fuentes \thanks{ Universidad Tecnológica de
-Bolívar, Colombia, e-mail: \url{pastranam@utb.edu.co}, ID: T000XXXXX}
+Bolívar, Colombia, e-mail: \url{pastranam@utb.edu.co}, ID: T00092786}
 } 
 
 
@@ -115,31 +115,6 @@ Objetivos específicos:
 
 \textbf{Método:}
 Se realizó un estudio transversal descriptivo sobre una base de datos de fallas en vehículos del Sistema Integrado de Transporte Masivo (SITM) de la ciudad de Cartagena. El análisis abarcó desde el 1 de septiembre de 2024 hasta el 1 de agosto de 2025. Para las variables cualitativas, se estimaron frecuencias absolutas y relativas, mientras que las variables cuantitativas se resumieron utilizando medidas de tendencia central y de dispersión, como medias y desviaciones estándar. La estimación del costo de oportunidad se calculó teniendo en cuenta el número máximo de personas que los vehículos pueden transportar, multiplicado por el costo total de la tarifa vigente en 2024, que era de 3000 pesos.
-
-\textbf{Resultados:}
-
-
-
-\begin{enumerate}
-    \item Durante los siete meses del estudio, se registró un total de 3,635 fallas. Las rutas X106 (546 fallas) y X104 (524 fallas) presentaron el mayor número de incidencias. Asimismo, se observa que el tipo de vehículo con mayor frecuencia de averías es el Padrón, con un total de 2,484 fallas, lo que representa el 68\% del total.
-    
-    \item Se evidencia que las fallas ocurren principalmente en el Patio Portal, con un total de 1,176 incidentes (37\%), seguido por la Estación Bodeguita con 655 fallas (20\%) y la Terminal con 191 fallas (5.9\%). Estas averías suelen presentarse entre las 5:30 p.m. y las 7:00 p.m. En cuanto a las causas, el problema más frecuente es la falla en el sistema de aire comprimido, con 292 casos (18\%), seguido por altas temperaturas y riesgos de daños en componentes y motores, con 230 reportes (14\%). Otra avería común es el mal funcionamiento de las puertas, que representa 158 casos (9.8\%).
-    
-    \item En términos de costos, se identificó que la mediana de los costos de oportunidad sugiere que el 50\% de los valores mínimos son inferiores a 900,000 pesos, mientras que la otra mitad supera este valor. Por otro lado, el costo mínimo promedio de oportunidad calculado fue de 20,519,571 pesos colombianos por día de vehículo varado, mientras que el valor máximo alcanzó los 43,889,084 pesos colombianos, lo que representaría una pérdida promedio de 1,545 usuarios.
-\end{enumerate}
-
-\textbf{Conclusión:}
-
-En conclusión, la recurrencia de varadas y sus consecuencias evidencian la necesidad de \textbf{optimizar los procesos de mantenimiento}, implementar \textbf{estrategias de prevención de fallas} y considerar \textbf{mejoras en la infraestructura vehicular}. Abordar estos aspectos no solo contribuiría a reducir los costos operativos, sino que también mejoraría la experiencia del usuario y la continuidad del servicio, fortaleciendo así la eficiencia y sostenibilidad del SITM.
-
-Esto se desprende del análisis de las varadas de los vehículos del \textbf{Sistema Integrado de Transporte Masivo (SITM)}, donde se identificó que estas generan un impacto significativo tanto en las \textbf{pérdidas económicas de la empresa operadora} como en la \textbf{calidad del servicio percibida por los usuarios}.
-
-Desde una perspectiva financiera, las interrupciones en el servicio generan costos elevados, con un costo mínimo promedio de \textbf{20,519,571 pesos colombianos por día varado}, alcanzando hasta \textbf{43,889,084 pesos} en los escenarios más críticos. Esto no solo representa un riesgo financiero considerable para la empresa, sino que además implica una pérdida diaria estimada de \textbf{1,545 usuarios}, afectando la sostenibilidad del sistema y la confianza de los usuarios.
-
-Por su parte, en términos operativos, las fallas ocurren con mayor frecuencia en puntos clave como \textbf{el Patio Portal (37\%)}, \textbf{la Estación Bodeguita (20\%)} y \textbf{la Terminal (5.9\%)}, concentrándose en horarios críticos entre \textbf{las 5:30 p. m.} y \textbf{las 7:00 p. m.} Los problemas más recurrentes afectan a los buses en los sistemas de \textbf{aire comprimido (32\%)} y \textbf{motor (23\%)}, así como en subsistemas esenciales como \textbf{los frenos (16\%)} y \textbf{el sistema de refrigeración (16\%)}.
-
-Esta alta incidencia de fallas se presenta especialmente en los vehículos de tipología \textbf{Padrón (68\%)}, lo que sugiere que ciertos modelos requieren \textbf{mayor mantenimiento o actualización} para reducir la frecuencia de varadas y mejorar la confiabilidad del sistema. Además, las fallas en el \textbf{sistema de aire comprimido (18\%)} y los riesgos derivados de \textbf{altas temperaturas en los componentes} y en \textbf{el motor (14\%)} destacan como factores clave que deben ser atendidos para mejorar la eficiencia del servicio, reducir la afectación al mismo y, en consecuencia, incrementar las ganancias producto de su operación.
-
 
 
 \textbf{\textit{Palabras clave:}}
@@ -275,23 +250,295 @@ kable(
 
 ## 3. Materiales y Métodos
 
+### 3.1 Paquetes Utilizados
+
+En este informe se utilizaron diversas librerías en R para realizar el análisis de los datos, visualización y la creación de interfaces interactivas. A continuación se describen las principales librerías empleadas:
+
+\begin{itemize}
+  \item \textbf{dplyr}: Herramienta para la manipulación de datos, que permite realizar operaciones de filtrado, selección, agrupación y resumen de datos de manera eficiente y concisa.
+  \item \textbf{knitr}: Librería que facilita la creación de documentos dinámicos al permitir la integración de código R dentro de documentos en formato R Markdown. Permite generar informes reproducibles.
+  \item \textbf{kableExtra}: Utilizada para mejorar y personalizar las tablas generadas en R Markdown o LaTeX, permitiendo el diseño y formato avanzado de tablas con facilidad.
+  \item \textbf{dplyr}: Librería utilizada para la manipulación eficiente de datos, permitiendo filtrar, seleccionar, ordenar y resumir información en los dataframes de forma rápida y sencilla.
+  \item \textbf{ggplot2}: Herramienta fundamental para la creación de gráficos. Proporciona una gramática para construir visualizaciones complejas de manera eficiente y estética.
+  \item \textbf{forcats}: Esta librería facilita el trabajo con factores, lo cual es útil cuando se manejan variables categóricas en R.
+  \item \textbf{readxl}: Librería utilizada para importar archivos de Excel (.xlsx) a R. Permite extraer datos desde hojas de cálculo con facilidad.
+  \item \textbf{scales}: Usada para modificar y escalar ejes y elementos gráficos en las visualizaciones. Es útil para la personalización de la presentación visual.
+  \item \textbf{stringr}: Proporciona una serie de funciones para el manejo de cadenas de texto en R, lo que facilita la limpieza y transformación de datos textuales.
+  \item \textbf{flextable}: Librería para la creación de tablas flexibles y personalizables. Es útil para presentar datos en informes y documentos con formato enriquecido.
+  \item \textbf{plotly}: Herramienta utilizada para crear gráficos interactivos. Permite generar visualizaciones dinámicas y atractivas en la web.
+  \item \textbf{shiny}: Librería para construir aplicaciones web interactivas directamente desde R. Permite la creación de dashboards y visualizaciones en tiempo real.
+  \item \textbf{skimr}: Utilizada para obtener resúmenes rápidos de los datos, proporcionando estadísticas descriptivas y una visión general de las variables de forma concisa.
+  \item \textbf{htmltools}: Librería utilizada para trabajar con contenido HTML y generar elementos dinámicos que se puedan integrar en aplicaciones web interactivas.
+\end{itemize}
+
+```{r, echo=FALSE, message=FALSE}
+library(readxl)
+library(ggplot2)
+library(dplyr)
+df <- read_xlsx("../dashboard final/df_final.xlsx") %>% 
+  mutate(kilometraje = as.numeric(kilometraje))
+
+```
+
+
+### Analisis de normalidad
+
+Realizamos un analisis de normalidad de la variable costo_x_perdida, para determinar si los datos se distribuyen normalmente. Para ello, utilizamos el histograma y la prueba de Shapiro-Wilk.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Histograma con densidad
+
+# Histograma con densidad mejorado
+ggplot(df, aes(x = costo_x_perdida)) + 
+  geom_histogram(aes(y = ..density..), 
+                 color = "black", fill = "orange", alpha = 0.7, bins = 30) + 
+  geom_density(color = "darkred", size = 1, alpha = 0.5) + 
+  xlim(0, quantile(df$costo_x_perdida, 0.95)) + 
+  theme_classic() + 
+  labs(x = "Costo de operación", y = "Densidad", 
+       title = "Distribución de costos con densidad")
+
+resultado_shapiro <- shapiro.test(df$costo_x_perdida)
+
+# Usa cat() para imprimir el resultado sin elementos extra
+cat("El resultado de la prueba de Shapiro es:\n")
+print(resultado_shapiro)
+#como es menor a 0.05 los datos no se distribuyen normalmente
+#p-value < 0.00000000000000022
+```
+al ser un resultado menor a 0.05, podemos concluir que los datos no se distribuyen normalmente.
+
+### Anlálisis Bivariado
+
+Tambien se realizó un análisis bivariado entre las variables costo_x_perdida y kilometraje, para determinar si existe una relación entre estas dos variables. Para ello, se utilizó el gráfico de dispersión y la correlación de Pearson.
+
+```{r}
+library(GGally)
+
+# Definir nombres de títulos
+nombre_titulos <- c("Costo máximo de oportunidad", "Costo por pérdida", "Kilometraje")
+
+# Crear el gráfico `ggpairs` mejorado
+GGally::ggpairs(df, 
+        columns = c("costo_opot_max", "costo_x_perdida", "kilometraje"),
+        mapping = aes(color = tipologia),
+        columnLabels = nombre_titulos,  # Usar etiquetas personalizadas
+        upper = list(continuous = wrap("cor", size = 5)),  # Mostrar correlaciones en la parte superior
+        lower = list(continuous = wrap("smooth", method = "lm", se = FALSE))  # Ajustar regresión lineal
+)
+```
+### Gráfico de cajas y bigotes
+
+Relizamos un analisis de cajas y bigotes para determinar si existen valores atípicos en la variable costo_x_perdida, y así determinar si existe una diferencia significativa entre los costos de los vehículos que quedaron varados y los que no.
+
+```{r}
+
+# Gráfico de cajas y bigotes
+ggplot(df, aes(x = "", y = costo_opot_min)) +
+  geom_boxplot(fill = "goldenrod", color = "black", outlier.color = "red", outlier.shape = 16) +  # Bordes negros y puntos para valores atípicos
+  theme_classic() +
+  labs(
+    x = NULL,  # Eliminar etiqueta del eje x ya que no es necesaria
+    y = "Costo de oportunidad mínimo",
+    title = "Gráfico de cajas y bigotes"
+  ) +
+  ylim(480000, 33000000) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),  # Centrar y resaltar título
+    axis.title.y = element_text(size = 12, face = "bold"),  # Resaltar el título del eje Y
+    axis.text.y = element_text(size = 10),  # Mejorar legibilidad del eje Y
+    axis.text.x = element_blank()  # Remover el texto del eje X
+  )
+``` 
+
+### Anális de costo de oportunida minimo
+
+En este análisis se determina lo que se pudo haber ganado minimamente.
+
+```{r}
+#Gráficos de probabilidad normal
+ggplot(df, aes(sample = costo_opot_min,color= factor(tipologia))) + 
+    stat_qq(color = "orange") + 
+    stat_qq_line(color = "grey") + 
+    theme_classic() + 
+    labs(x = "Cuantiles teóricos", y = "Cuantiles de la muestra",
+         title = "Gráfico Q-Q de costo de oportunidad mínimo")
+```
+
+
+### Histograma Número de Fallas por Rutas
+
+Se realiza un histograma para determinar el número de fallas por rutas, con el fin de identificar las rutas que tienen mayor número de fallas.
+```{r}
+# Rutas con mayor número de fallas (sin interactividad)
+df %>%
+  group_by(ruta) %>%
+  summarise(frec = n()) %>%
+  arrange(desc(frec)) %>%
+  head(8) %>%
+  ggplot(aes(x = reorder(ruta, frec), y = frec)) +
+  geom_bar(stat = "identity", fill = "steelblue", color = "black") +
+  geom_text(aes(label = frec), hjust = -0.2, size = 5) +  # Agrega etiquetas de valores
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 10),
+        plot.title = element_text(size = 14, face = "bold")) +
+  labs(x = "Rutas", y = "Número de fallas", title = "Top 8 Rutas con Más Fallas")
+```
+
+Caemos en cuenta como la ruta X106 tiene el mayor número de fallas, seguido por la ruta X104 y la T102 esto puede deberse a que estas rutas son las más largas y tienen mayor número de usuarios, lo que puede generar un mayor desgaste en los vehículos, asi como también el hecho de que estas rutas son las más antiguas y tienen un mayor número de vehículos en operación y la calidad en las carreteras puede influir en el número de fallas.
+
+### Histograma Número de Fallas por Día de la Semana
+
+Se realiza un histograma para determinar el número de fallas por día de la semana, con el fin de identificar los días que tienen mayor número de fallas.
+
+```{r}
+# Rutas con mayor número de fallas (sin interactividad)
+df %>%
+  group_by(dia_habil) %>%
+  summarise(total = n()) %>%
+  ggplot(aes(x = reorder(dia_habil, total), y = total)) +
+  geom_bar(stat = "identity", fill = "orange", color = "black") +
+  geom_text(aes(label = total), hjust = -0.2, size = 5) +  # Agrega etiquetas de valores
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 10),
+        plot.title = element_text(size = 14, face = "bold")) +
+  labs(x = "Día de la semana", y = "Número de fallas", title = "Fallas por día de la semana")
+```
+
+Aqui se puede determinar que los primeros dias de la semana son donde mas varadas ocurren, esto se puede deber tambien a que son los dias con mayor afluencia de usuarios y por lo tanto los vehiculos son sometidos a mayor carga, lo que puede generar un mayor desgaste en los vehiculos.
+
+### Costo promedio según estado de varado
+
+Se realiza un gráfico de barras para determinar el costo promedio según el estado de varado, con el fin de identificar si existe una diferencia significativa entre los costos de los vehículos que quedaron varados y los que no.
+```{r}
+library(scales)
+
+# Costo promedio según estado de varado (sin interactividad)
+df %>%
+  group_by(varado) %>%
+  summarise(costo_promedio = mean(costo_x_perdida, na.rm = TRUE)) %>%
+  ggplot(aes(x = varado, y = costo_promedio, fill = varado)) +
+  geom_bar(stat = "identity", color = "black") +
+  geom_text(aes(label = dollar(costo_promedio, big.mark = ".")), vjust = -0.5, size = 5) +  # Etiquetas de valores
+  theme_light() +
+  theme(axis.title = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 10),
+        plot.title = element_text(size = 14, face = "bold")) +
+  scale_y_continuous(labels = dollar_format(big.mark = ".")) +
+  scale_fill_manual(values = c("NO" = "skyblue", "SI" = "tomato")) +
+  labs(x = "Varado", y = "Costo promedio ($)", title = "Costo por condición de varado")
+```
+
+Nos damos cuenta que efecticamente hay una diferencia entre los costos de los vehículos que quedaron varados y los que no. Y es que  cuando el vehiculo se vara representa un mayor costo, este costo puede deberse representado por los costos adicionales como la grua o auxilio del vehiculo en via. 
+
+### Sistemas con mayor número de fallas
+
+```{r}
+
+# Sistemas con más fallas reportadas (sin interactividad y sin NA)
+df %>%
+  filter(!is.na(sistema)) %>%  # Filtrar valores NA
+  group_by(sistema) %>%
+  summarise(frec = n()) %>%
+  arrange(desc(frec)) %>%
+  head(8) %>%
+  ggplot(aes(x = reorder(sistema, frec), y = frec)) +
+  geom_bar(stat = "identity", fill = "darkgreen", color = "black") +
+  geom_text(aes(label = frec), hjust = -0.2, size = 5) +  # Agrega etiquetas de valores
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 10),
+        plot.title = element_text(size = 14, face = "bold")) +
+  labs(x = "Sistema", y = "Número de fallas", title = "Top 8 Sistemas con Más Fallas")
+```
+Se sacó los sistemas que quedaron "N/A" pues son los sistemas no identificados, y así, podemos darnos cuenta como el sistema de aire comprimido es el que más fallas tiene, seguido por el sistema de motor y el sistema electrico Esto puede deberse a que estos sistemas son los más críticos para el funcionamiento del vehículo y son los que más se utilizan en la operación diaria.
+
+### Subsistema con mayor costo
+
+Se realiza un gráfico de barras para determinar el costo promedio según el subsistema, con el fin de identificar si existe una diferencia significativa entre los costos de los subsistemas.
+
+```{r}
+library(scales)
+
+# Subsistemas con mayor costo operativo (5-8) sin NA y sin interactividad
+df %>%
+  filter(!is.na(subsistema)) %>%  # Filtrar valores NA
+  group_by(subsistema) %>%
+  summarise(costo_promedio = mean(costo_x_perdida, na.rm = TRUE)) %>%
+  arrange(desc(costo_promedio)) %>%
+  slice(5:8) %>%
+  ggplot(aes(x = reorder(subsistema, costo_promedio), y = costo_promedio, fill = subsistema)) +
+  geom_bar(stat = "identity", color = "black") +
+  geom_text(aes(label = dollar(costo_promedio, big.mark = ".")), vjust = -0.5, size = 5) +  # Etiquetas de valores
+  coord_flip() +
+  theme_light() +
+  theme(axis.title = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 10),
+        plot.title = element_text(size = 14, face = "bold")) +
+  scale_y_continuous(labels = dollar_format(big.mark = ".")) +
+  scale_fill_manual(values = c("purple", "blue", "green", "pink")) +  # Colores definidos
+  labs(x = "Subsistema", y = "Costo promedio ($)", title = "Siguiente 4 Subsistemas más Costosos")
+```
+
+Podemos darnos cuenta como el subsistema de electrico motor, motor, y suspension son los mas criticos a nivel de costos, lo cual tiene algo de sentido suponiendo que estos son los subsistemas que mas se utilizan en la operacion diaria de los vehiculos, y por lo tanto son los que mas fallan y los que tienen algunos de los repuestos más costosos.
+
+
+### Cantidad de fallas por Ubicación
+
+
+Realizamos un gráfico de barras para determinar la cantidad de fallas por ubicación, con el fin de identificar si existe una diferencia significativa entre las ubicaciones.
+```{r}
+# Mostrar solo las primeras 6 barras
+df %>%
+  filter(!is.na(ubicacion)) %>%  # Filtrar valores NA
+  group_by(ubicacion, ruta) %>%
+  summarise(frec = n(), .groups = "drop") %>%  # Calcular frecuencias
+  arrange(desc(frec)) %>%
+  slice(1:8) %>%  # Seleccionar las 6 primeras filas
+  ggplot(aes(x = reorder(ubicacion, frec), y = frec)) +
+  geom_bar(stat = "identity", fill = "orange", color = "black") +  # Barras con bordes
+  coord_flip() +
+  theme_classic() +
+  theme(axis.title = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 10),
+        plot.title = element_text(size = 14, face = "bold")) +
+  labs(x = "Ubicación", y = "Número de fallas", title = "Top 6 Ubicaciones con Fallas Reportadas")
+```
+Nos damos cuenta como esperabamos las estaciones de finalización e inicio de ruta son las que presentan mayor indice de fallas, esto indica que el vehiculo es forzado a llegar a estas estaciones y por lo tanto es donde se presentan la mayoria de las fallas. Por tanto esta informacion como tal no nos sirve si lo que queremos es determinar la ubicación exacta donde se presentan las fallas. 
+
 ## 4. Resultados y Discusión
+
+\begin{enumerate}
+    \item Durante los seis meses del estudio, se registró un total de 3,635 fallas. Las rutas X106 (546 fallas) y X104 (524 fallas) presentaron el mayor número de incidencias. Asimismo, se observa que el tipo de vehículo con mayor frecuencia de averías es el Padrón, con un total de 2,484 fallas, lo que representa el 68\% del total.
+    
+    \item Se evidencia que las fallas ocurren principalmente en el Patio Portal, con un total de 1,176 incidentes (37\%), seguido por la Estación Bodeguita con 655 fallas (20\%) y la Terminal con 191 fallas (5.9\%). Estas averías suelen presentarse entre las 5:30 p.m. y las 7:00 p.m. En cuanto a las causas, el problema más frecuente es la falla en el sistema de aire comprimido, con 292 casos (18\%), seguido por altas temperaturas y riesgos de daños en componentes y motores, con 230 reportes (14\%). Otra avería común es el mal funcionamiento de las puertas, que representa 158 casos (9.8\%).
+    
+    \item En términos de costos, se identificó que la mediana de los costos de oportunidad sugiere que el 50\% de los valores mínimos son inferiores a 900,000 pesos, mientras que la otra mitad supera este valor. Por otro lado, el costo mínimo promedio de oportunidad calculado fue de 20,519,571 pesos colombianos por día de vehículo varado, mientras que el valor máximo alcanzó los 43,889,084 pesos colombianos, lo que representaría una pérdida promedio de 1,545 usuarios.
+\end{enumerate}
+
 
 ## 5. Conclusiones y Recomendaciones
 
-## Agradecimientos
+\section{Análisis desde Diferentes Perspectivas}
 
-## Apéndice A. Enlace al conjunto de datos
+A continuación se presenta un resumen del impacto de las varadas en el \textit{Sistema Integrado de Transporte Masivo (SITM)} desde tres enfoques: financiero, operativo y de usuario.
+
+\begin{enumerate}
+    \item \textbf{Perspectiva financiera:} Las interrupciones en el servicio generan costos elevados, con un costo mínimo promedio de \textbf{\$20.519.571 pesos colombianos por día varado}, alcanzando hasta \textbf{\$43.889.084 pesos} en los escenarios más críticos. Esto representa no solo un riesgo financiero considerable para la empresa operadora, sino también una pérdida diaria estimada de \textbf{1.545 usuarios}, afectando la sostenibilidad del sistema y la confianza de los usuarios en el servicio.
+
+    \item \textbf{Perspectiva operativa:} Los problemas más frecuentes afectan principalmente los sistemas de \textbf{aire comprimido (32\%)} y \textbf{motor (23\%)}, junto con subsistemas esenciales como \textbf{frenos (16\%)} y \textbf{sistema de refrigeración (16\%)}. La mayor incidencia de fallas se presenta en los vehículos de tipología \textbf{Padron (68\%)}, lo que sugiere que ciertos modelos requieren \textbf{mayores labores de mantenimiento o procesos de actualización tecnológica} para disminuir la frecuencia de varadas y mejorar la confiabilidad del servicio. Adicionalmente, las fallas en el \textbf{sistema de aire comprimido (18\%)} y los riesgos asociados a \textbf{altas temperaturas en los componentes} y en el \textbf{motor (14\%)} se identifican como factores críticos que deben ser abordados para optimizar la operación, minimizar afectaciones al servicio y aumentar la rentabilidad.
+
+    \item \textbf{Perspectiva del usuario:} Las fallas tienden a concentrarse en puntos estratégicos como \textbf{el Patio Portal (37\%)}, \textbf{la Estación Bodeguita (20\%)} y \textbf{la Terminal (5,9\%)}, ocurriendo con mayor frecuencia durante horarios críticos, entre las \textbf{5:30 p.m.} y las \textbf{7:00 p.m.}, momento de alta demanda de servicio por parte de los usuarios.
+\end{enumerate}
+
 
 \newpage
 
-\begin{thebibliography}{01}
-\bibitem{jorge} Referencia n\'umero uno.
-\bibitem{2} Referencia n\'umero dos.
-\bibitem{3} Referencia n\'umero tres.
-\bibitem{Baz} \textsc{Bazaraa, M.S., J.J. Jarvis} y \textsc{H.D. Sherali},
-\textit{Programaci\'on lineal y flujo en redes}, segunda edici\'on,Limusa, M\'exico, DF, 2004.
-\end{thebibliography}
 
 
 
