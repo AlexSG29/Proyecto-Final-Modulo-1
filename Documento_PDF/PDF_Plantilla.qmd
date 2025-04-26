@@ -57,11 +57,9 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, comment = FALSE, warning = 
 
 
 \title{
-\LARGE
-The Impact of SITM Vehicle Breakdowns on Economic Losses and Perceived Service Quality in Cartagena\\[0.5em]
-\large % Cambia el tamaño aquí según lo que prefieras
+\LARGE{
 Impacto de las varadas de vehículos del SITM en las pérdidas económicas y la percepción del servicio en Cartagena
-}
+}}
 
 
 
@@ -94,9 +92,13 @@ Bolívar, Colombia, e-mail: \url{pastranam@utb.edu.co}, ID: T000XXXXX}
 
 
 \textbf{Antecedentes:}
-El análisis de las fallas en los sistemas de transporte masivo ha sido ampliamente estudiado debido a su impacto en la economía, la calidad del servicio y el bienestar de la población. La eficiencia del sistema influye directamente en los niveles de satisfacción de los ciudadanos, afectando su experiencia de movilidad dentro de la ciudad. Investigaciones como **Sistemas Masivos de Transporte y sus Efectos en la Sostenibilidad e Innovación en América Latina** resaltan la importancia de una gestión estratégica que permita minimizar costos y optimizar la operatividad. La implementación de mantenimiento preventivo y la adecuada administración de los recursos resultan fundamentales para reducir interrupciones en el servicio y mejorar su continuidad. Por otro lado, el **Estudio sobre Sistemas Integrados de Transporte Masivo en Colombia** analiza los desafíos y avances en la gestión de estos sistemas a nivel nacional. Sus hallazgos refuerzan la necesidad de fortalecer estrategias de mantenimiento y modernización de flotas para mejorar la eficiencia operativa. 
- 
-Asimismo, el estudio **Influencia de los Sistemas de Transporte Masivo en la Movilidad Inteligente** resaltan la importancia  de la tecnología en la detección y prevención de fallas. Con el uso de herramientas digitales y sistemas de monitoreo permiten reducir pérdidas económicas y mejorar la experiencia del usuario. Su aplicación en el **Sistema Integrado de Transporte Masivo (SITM) de Cartagena** podría ser una estrategia efectiva para optimizar el funcionamiento y disminuir la frecuencia de varadas.  
+
+El análisis de las fallas en los sistemas de transporte masivo ha sido ampliamente estudiado debido a su impacto en la economía, la calidad del servicio y el bienestar de la población. La eficiencia del sistema influye directamente en los niveles de satisfacción de los ciudadanos, afectando su experiencia de movilidad dentro de la ciudad. Investigaciones como \textbf{Sistemas Masivos de Transporte y sus Efectos en la Sostenibilidad e Innovación en América Latina} resaltan la importancia de una gestión estratégica que permita minimizar costos y optimizar la operatividad. La implementación de mantenimiento preventivo y la adecuada administración de los recursos resultan fundamentales para reducir interrupciones en el servicio y mejorar su continuidad. Por otro lado, el \textbf{Estudio sobre Sistemas Integrados de Transporte Masivo en Colombia} analiza los desafíos y avances en la gestión de estos sistemas a nivel nacional. Sus hallazgos refuerzan la necesidad de fortalecer estrategias de mantenimiento y modernización de flotas para mejorar la eficiencia operativa.
+
+Asimismo, el estudio \textbf{Influencia de los Sistemas de Transporte Masivo en la Movilidad Inteligente} resalta la importancia de la tecnología en la detección y prevención de fallas. Con el uso de herramientas digitales y sistemas de monitoreo se permite reducir pérdidas económicas y mejorar la experiencia del usuario. Su aplicación en el \textbf{Sistema Integrado de Transporte Masivo (SITM) de Cartagena} podría ser una estrategia efectiva para optimizar el funcionamiento y disminuir la frecuencia de varadas.
+\newpage
+
+
 \textbf{Objetivos:}
 
 Objetivo general:
@@ -112,23 +114,32 @@ Objetivos específicos:
 \end{enumerate}
 
 \textbf{Método:}
-Se realizó un estudio transversal descriptivo sobre una base  de fallas en vehículos del Sistema Integrado de Transporte Masivo (SITM) de la ciudad de Cartagena. El análisis abarcó desde el 1 de septiembre de 2024 hasta el 1 de agosto de 2025.  por su parte, para las variables cualitativas se estimaron frecuencias absolutas y relativas y en el caso de las variables cuantitativas estas fueron resumidas a partir del uso de medias de tendencia central y dispersión particular, se usaron medias,frecuencias relativas y absolutas. La estimación del costo de oportunidad fue calculada teniendo en cuenta el numero de personas maxima que los vehiculos pueden trasportar y multiplicado por el costo total de la tarija a 2024 que era de $3000 pesos.
+Se realizó un estudio transversal descriptivo sobre una base de datos de fallas en vehículos del Sistema Integrado de Transporte Masivo (SITM) de la ciudad de Cartagena. El análisis abarcó desde el 1 de septiembre de 2024 hasta el 1 de agosto de 2025. Para las variables cualitativas, se estimaron frecuencias absolutas y relativas, mientras que las variables cuantitativas se resumieron utilizando medidas de tendencia central y de dispersión, como medias y desviaciones estándar. La estimación del costo de oportunidad se calculó teniendo en cuenta el número máximo de personas que los vehículos pueden transportar, multiplicado por el costo total de la tarifa vigente en 2024, que era de 3000 pesos.
 
 \textbf{Resultados:}
+
+
+
 \begin{enumerate}
-    \item Durante los siete meses del estudio, se registraron un total de 3,635 fallas. Las rutas X106 (546 fallas) y X104 (524 fallas) presentaron el mayor número de incidencias. Asimismo, se observa que el tipo de vehículo con mayor frecuencia de averías es el Padron, con un total de 2,484 fallas, lo que representa el 68% del total.
-    \item Se observa que las fallas ocurren principalmente en el Patio Portal, con un total de 1,176 incidentes (37%), seguido por la Estación Bodeguita con 655 fallas (20%) y la Terminal con 191 fallas (5.9%). Estas averías suelen presentarse entre las 5:30 p. m. y las 7:00 p. m. En cuanto a las causas, el problema más frecuente es la falla en el sistema de aire comprimido, con 292 casos (18%), seguido por altas temperaturas y riesgos de daños en componentes y motores, con 230 reportes (14%). Otra avería común es el mal funcionamiento de las puertas, que representa 158 casos (9.8%).
-    \item En términos de costos, se identificó que la mediana de los costos por operación sugiere que el 50% de los costos de oportunidad mínimos son menores a 900,000, mientras que la otra mitad supera este valor. Por otro lado, el costo mínimo promedio de oportunidad calculado fue de 20,519,571 pesos colombianos por día varado, mientras que el máximo alcanzó los 43,889,084 pesos colombianos, lo que representaría una pérdida promedio de 1,545 usuarios.
+    \item Durante los siete meses del estudio, se registró un total de 3,635 fallas. Las rutas X106 (546 fallas) y X104 (524 fallas) presentaron el mayor número de incidencias. Asimismo, se observa que el tipo de vehículo con mayor frecuencia de averías es el Padrón, con un total de 2,484 fallas, lo que representa el 68\% del total.
+    
+    \item Se evidencia que las fallas ocurren principalmente en el Patio Portal, con un total de 1,176 incidentes (37\%), seguido por la Estación Bodeguita con 655 fallas (20\%) y la Terminal con 191 fallas (5.9\%). Estas averías suelen presentarse entre las 5:30 p.m. y las 7:00 p.m. En cuanto a las causas, el problema más frecuente es la falla en el sistema de aire comprimido, con 292 casos (18\%), seguido por altas temperaturas y riesgos de daños en componentes y motores, con 230 reportes (14\%). Otra avería común es el mal funcionamiento de las puertas, que representa 158 casos (9.8\%).
+    
+    \item En términos de costos, se identificó que la mediana de los costos de oportunidad sugiere que el 50\% de los valores mínimos son inferiores a 900,000 pesos, mientras que la otra mitad supera este valor. Por otro lado, el costo mínimo promedio de oportunidad calculado fue de 20,519,571 pesos colombianos por día de vehículo varado, mientras que el valor máximo alcanzó los 43,889,084 pesos colombianos, lo que representaría una pérdida promedio de 1,545 usuarios.
 \end{enumerate}
 
-  
 \textbf{Conclusión:}
 
-En conclusión, la recurrencia de varadas y sus consecuencias evidencian la necesidad de **optimizar los procesos de mantenimiento**, implementar **estrategias de prevención de fallas** y considerar **posibles mejoras en la infraestructura vehicular**. Abordar estos aspectos no solo contribuiría a reducir los costos operativos, sino que también mejoraría la experiencia del usuario y la continuidad del servicio, fortaleciendo la eficiencia y sostenibilidad del SITM. esto dado que se identifico por medio del análisis de las varadas de los vehículos del **Sistema Integrado de Transporte Masivo (SITM)**, que estos generan un impacto significativo tanto en las **pérdidas económicas de la empresa operadora** como en la **calidad del servicio percibida por los usuarios**.  
+En conclusión, la recurrencia de varadas y sus consecuencias evidencian la necesidad de \textbf{optimizar los procesos de mantenimiento}, implementar \textbf{estrategias de prevención de fallas} y considerar \textbf{mejoras en la infraestructura vehicular}. Abordar estos aspectos no solo contribuiría a reducir los costos operativos, sino que también mejoraría la experiencia del usuario y la continuidad del servicio, fortaleciendo así la eficiencia y sostenibilidad del SITM.
 
-dado que si lo miramos desde la perspectiva financiera, las interrupciones en el servicio generan costos elevados, con un costo mínimo promedio de **20,519,571 pesos colombianos por día varado**, alcanzando hasta **43,889,084 pesos** en los peores escenarios. Esto no solo representa un riesgo financiero considerable para la empresa, sino que también implica una pérdida diaria estimada de **1,545 usuarios**, afectando la sostenibilidad del sistema y la confianza en el usuario.Por su parte, en términos operativos, las fallas ocurren con mayor frecuencia en puntos clave como **el Patio Portal (37%)**, **la Estación Bodeguita (20%)** y **la Terminal (5.9%)**, y  estas suelen presentarse en horarios críticos entre **las 5:30 p. m** y **las 7:00 p. m**. Los problemas más recurrentes afectan a los buses son  **aire comprimido (32%)** y **el motor (23%)**, así como subsistemas esenciales como **los frenos (16%)** y **el sistema de refrigeración (16%)**.  
+Esto se desprende del análisis de las varadas de los vehículos del \textbf{Sistema Integrado de Transporte Masivo (SITM)}, donde se identificó que estas generan un impacto significativo tanto en las \textbf{pérdidas económicas de la empresa operadora} como en la \textbf{calidad del servicio percibida por los usuarios}.
 
-pero esta  alta incidencia  de fallas se presenta en los vehículos de tipologia **Padron (68%)** lo que sugiere que ciertos modelos requieren **mayor mantenimiento o actualización** para reducir la frecuencia de varadas y mejorar la confiabilidad del sistema. Además, las fallas en el **sistema de aire comprimido (18%)** y los riesgos derivados de **altas temperaturas en los componentes** y **el motor (14%)** destacan como factores clave que deben ser abordados para mejorar la eficiencia del servicio, reducir la afectación  al servicio y mejor aumentar las ganancias producto del servicio.  
+Desde una perspectiva financiera, las interrupciones en el servicio generan costos elevados, con un costo mínimo promedio de \textbf{20,519,571 pesos colombianos por día varado}, alcanzando hasta \textbf{43,889,084 pesos} en los escenarios más críticos. Esto no solo representa un riesgo financiero considerable para la empresa, sino que además implica una pérdida diaria estimada de \textbf{1,545 usuarios}, afectando la sostenibilidad del sistema y la confianza de los usuarios.
+
+Por su parte, en términos operativos, las fallas ocurren con mayor frecuencia en puntos clave como \textbf{el Patio Portal (37\%)}, \textbf{la Estación Bodeguita (20\%)} y \textbf{la Terminal (5.9\%)}, concentrándose en horarios críticos entre \textbf{las 5:30 p. m.} y \textbf{las 7:00 p. m.} Los problemas más recurrentes afectan a los buses en los sistemas de \textbf{aire comprimido (32\%)} y \textbf{motor (23\%)}, así como en subsistemas esenciales como \textbf{los frenos (16\%)} y \textbf{el sistema de refrigeración (16\%)}.
+
+Esta alta incidencia de fallas se presenta especialmente en los vehículos de tipología \textbf{Padrón (68\%)}, lo que sugiere que ciertos modelos requieren \textbf{mayor mantenimiento o actualización} para reducir la frecuencia de varadas y mejorar la confiabilidad del sistema. Además, las fallas en el \textbf{sistema de aire comprimido (18\%)} y los riesgos derivados de \textbf{altas temperaturas en los componentes} y en \textbf{el motor (14\%)} destacan como factores clave que deben ser atendidos para mejorar la eficiencia del servicio, reducir la afectación al mismo y, en consecuencia, incrementar las ganancias producto de su operación.
+
 
 
 \textbf{\textit{Palabras clave:}}
@@ -147,7 +158,7 @@ Este estudio tiene como objetivo analizar de manera integral estas fallas dentro
 Finalmente, el estudio busca cuantificar las pérdidas económicas derivadas de las averías, destacar las principales áreas de impacto y evaluar las consecuencias negativas para los usuarios, con el objetivo final de mejorar la transparencia y reconstruir la confianza en el sistema. En base a este contexto, surge la siguiente pregunta de investigación:
 ¿Cuál es el impacto de las averías de los vehículos en el Sistema Integrado de Transporte Masivo (SITM) de Cartagena sobre las pérdidas económicas de la empresa operadora y la calidad percibida del servicio por parte de los usuarios?
 
-## 2. Data
+## 2. Datos
 
 Los datos recopilados corresponden a una muestra representativa de autobuses y rutas dentro del Sistema Integrado de Transporte Masivo (SITM) de la ciudad; por lo tanto, no cubren la totalidad del sistema. Además, el análisis está limitado a un período de siete meses. La información fue proporcionada por una de las empresas operadoras del sistema. Se recolectaron datos tanto cualitativos como cuantitativos, aunque predominan los últimos. A continuación, se presenta un resumen detallado de los tipos y cantidades de datos finales que se utilizarán en el análisis.
 
@@ -159,118 +170,118 @@ library(knitr)
 library(kableExtra)
 
 # Cargar los datos desde el archivo Excel
-data <- read_excel("../Dashboard_Presentacion/df_final.xlsx", sheet = "Sheet1")
+datos <- read_excel("../Dashboard_Presentacion/df_final.xlsx", sheet = "Sheet1")
 
 # Obtener los tipos de variables
-variable_types <- sapply(data, class)
+tipos_variables <- sapply(datos, class)
 
 # Calcular la cantidad de variables por tipo, ajustando las observaciones
-num_quanti <- sum(sapply(data, is.numeric)) - 1  # Restamos year_falla, que ahora es Date/Time
-num_quali <- sum(sapply(data, is.character)) - 2  # Restamos varado y afectacion_al_usuario, que son booleanas
-num_dates <- sum(sapply(data, inherits, what = c("POSIXct", "POSIXt"))) + 1  # Agregamos year_falla
-num_boolean <- 2  # Contamos varado y afectacion_al_usuario como booleanas
+num_cuantitativas <- sum(sapply(datos, is.numeric)) - 1  # Restamos year_falla, que ahora es Date/Time
+num_cualitativas <- sum(sapply(datos, is.character)) - 2  # Restamos varado y afectacion_al_usuario, que son booleanas
+num_fechas <- sum(sapply(datos, inherits, what = c("POSIXct", "POSIXt"))) + 1  # Agregamos year_falla
+num_booleanas <- 2  # Contamos varado y afectacion_al_usuario como booleanas
 
 # Crear un resumen con la cantidad de variables por tipo
-summary_table <- data.frame(
-  Type = c("Quantitative", "Qualitative", "Date/Time", "Boolean"),
-  Count = c(num_quanti, num_quali, num_dates, num_boolean)
+tabla_resumen <- data.frame(
+  Tipo = c("Cuantitativa", "Cualitativa", "Fecha/Hora", "Booleana"),
+  Cantidad = c(num_cuantitativas, num_cualitativas, num_fechas, num_booleanas)
 )
 
 # Mostrar el resumen en el PDF como tabla
 kable(
-  summary_table, 
+  tabla_resumen, 
   format = "latex", 
-  caption = "Number of Variables by Type", 
-  label = "summary-table"
+  caption = "Cantidad de Variables por Tipo", 
+  label = "tabla-resumen"
 ) %>%
   kable_styling(position = "center", latex_options = "H")
 ```
 ```{r}
 # Listar las variables por tipo
-quanti_vars <- names(data)[sapply(data, is.numeric) & names(data) != "year_falla"]   # Variables cuantitativas
-quali_vars <- names(data)[sapply(data, is.character) & !(names(data) %in% c("varado", "afectacion_al_usuario"))] # Variables cualitativas
-date_vars <- c(names(data)[sapply(data, inherits, what = c("POSIXct", "POSIXt"))], "year_falla")  # Variables de tipo fecha
-boolean_vars <- c("varado", "afectacion_al_usuario")  # Variables booleanas
+vars_cuantitativas <- names(datos)[sapply(datos, is.numeric) & names(datos) != "year_falla"]   # Variables cuantitativas
+vars_cualitativas <- names(datos)[sapply(datos, is.character) & !(names(datos) %in% c("varado", "afectacion_al_usuario"))] # Variables cualitativas
+vars_fecha <- c(names(datos)[sapply(datos, inherits, what = c("POSIXct", "POSIXt"))], "year_falla")  # Variables de tipo fecha
+vars_booleanas <- c("varado", "afectacion_al_usuario")  # Variables booleanas
 
 # Crear una tabla con las variables por tipo y una breve descripción
-variable_list <- data.frame(
-  Type = c(
-    rep("Quantitative", length(quanti_vars)),
-    rep("Qualitative", length(quali_vars)),
-    rep("Date/Time", length(date_vars)),
-    rep("Boolean", length(boolean_vars))
+lista_variables <- data.frame(
+  Tipo = c(
+    rep("Cuantitativa", length(vars_cuantitativas)),
+    rep("Cualitativa", length(vars_cualitativas)),
+    rep("Fecha/Hora", length(vars_fecha)),
+    rep("Booleana", length(vars_booleanas))
   ),
-  Variable = c(quanti_vars, quali_vars, date_vars, boolean_vars),
-  Description = c(
+  Variable = c(vars_cuantitativas, vars_cualitativas, vars_fecha, vars_booleanas),
+  Descripción = c(
     # Descripciones para variables cuantitativas
-    "Cost associated with vehicle downtime",
-    "Maximum number of trips made",
-    "Minimum number of trips made",
-    "Total number of users per route",
-    "Delay time in minutes or hours",
-    "Day when the vehicle was stranded",
-    "Minimum number of passengers",
-    "Maximum number of passengers",
-    "Cost of downtime (minimum estimate)",
-    "Cost of downtime (maximum estimate)",
-    
+    "Costo asociado al tiempo de varado del vehículo",
+    "Número máximo de viajes realizados",
+    "Número mínimo de viajes realizados",
+    "Número total de usuarios por ruta",
+    "Tiempo de retraso en minutos u horas",
+    "Día en que se presentó el varado",
+    "Número mínimo de pasajeros",
+    "Número máximo de pasajeros",
+    "Costo del varado (estimación mínima)",
+    "Costo del varado (estimación máxima)",
+
     # Descripciones para variables cualitativas
-    "Report System by the operating area",
-    "Route number or identifier",
-    "Location where the failure occurred",
-    "Vehicle identifier or license plate",
-    "Category or typology of the failure",
-    "Mileage at the time of the failure",
-    "Name of the vehicle operator",
-    "Time of the incident",
-    "Details or notes about the incident",
-    "Decision taken regarding the failure",
-    "Work order associated with the failure",
-    "Responsible technician",
-    "System involved in the failure",
-    "Subsystem involved in the failure",
-    "Reference component causing the failure",
-    "Component affected",
-    "Adjective describing the failure",
-    "Consequence of the failure",
-    "State or status of the failure resolution",
-    "Additional observations",
-    "Whether the day was a business day or not",
-    "Month in which the failure occurred",
-    "Time when it resumes operation.",
-    
+    "Sistema de reporte por parte del área operativa",
+    "Número o identificador de la ruta",
+    "Lugar donde ocurrió la falla",
+    "Identificador o placa del vehículo",
+    "Categoría o tipología de la falla",
+    "Kilometraje al momento de la falla",
+    "Nombre del operador del vehículo",
+    "Hora del incidente",
+    "Detalle o notas sobre el incidente",
+    "Decisión tomada frente a la falla",
+    "Orden de trabajo asociada a la falla",
+    "Técnico responsable de la reparación",
+    "Sistema involucrado en la falla",
+    "Subsistema involucrado en la falla",
+    "Componente de referencia causante de la falla",
+    "Componente afectado",
+    "Adjetivo calificativo de la falla",
+    "Consecuencia generada por la falla",
+    "Estado o resolución de la falla",
+    "Observaciones adicionales",
+    "Indica si el día fue hábil o no",
+    "Mes en el que ocurrió la falla",
+    "Hora en que se reanuda la operación",
+
     # Descripciones para variables de tipo fecha/hora
-    "Date when the failure occurred",
-    "Datetime of the delay caused by the failure",
-    "New date assigned after the failure",
-    "Year in which the failure occurred",
-    
+    "Fecha en que ocurrió la falla",
+    "Fecha y hora del retraso generado por la falla",
+    "Nueva fecha asignada tras la falla",
+    "Año en que se presentó la falla",
+
     # Descripciones para variables booleanas
-    "Whether the vehicle was stranded (Yes/No)",
-    "Whether the user was affected (Yes/No)"
+    "Indica si el vehículo quedó varado (Sí/No)",
+    "Indica si el usuario fue afectado (Sí/No)"
   )
 )
 
 # Mostrar la lista de variables en el PDF como tabla
 kable(
-  variable_list, 
+  lista_variables, 
   format = "latex", 
-  caption = "List of Variables with Descriptions", 
-  label = "variable-descriptions"
+  caption = "Listado de Variables con Descripciones", 
+  label = "descripciones-variables"
 ) %>%
-  kable_styling(position = "center", latex_options = "H") 
+  kable_styling(position = "center", latex_options = "H")
 ```
 
 
-## 3. Materials and Methods
- 
-## 4. Results and Discussion
+## 3. Materiales y Métodos
 
-## 5. Conclusion and Recommendations
+## 4. Resultados y Discusión
 
-## Acknowledgments
+## 5. Conclusiones y Recomendaciones
 
-## Appendix A. Dataset link
+## Agradecimientos
+
+## Apéndice A. Enlace al conjunto de datos
 
 \newpage
 
