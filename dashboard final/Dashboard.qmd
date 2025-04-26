@@ -27,6 +27,9 @@ library(plotly)
 library(shiny)
 library(skimr)
 library(htmltools)
+library(gtsummary)
+
+ options(scipen = 999)
 
 df <- read_xlsx("df_final.xlsx")
 
@@ -227,13 +230,28 @@ dia_repor_mayor_eventos <- df %>%
 
 ```
 
-# Materiales
-
-
+# Materiales y meetdos
 ## Row
 Se realizó un estudio transversal descriptivo sobre una base  de fallas en vehículos del Sistema Integrado de Transporte Masivo (SITM) de la ciudad de Cartagena. El análisis abarcó desde el 1 de septiembre de 2024 hasta el 1 de agosto de 2025.  por su parte, para las variables cualitativas se estimaron frecuencias absolutas y relativas y en el caso de las variables cuantitativas estas fueron resumidas a partir del uso de medias de tendencia central y dispersión particular, se usaron medias,frecuencias relativas y absolutas. La estimación del costo de oportunidad fue calculada teniendo en cuenta el numero de personas maxima que los vehiculos pueden trasportar y multiplicado por el costo total de la tarija a 2024 que era de $3.000 pesos.
 
-# Resultados y Discusión
+### Row 
+librerias que se utilizaron para desarrollar el tablero:
+
+library(dplyr)
+library(ggplot2)
+library(forcats)
+library(readxl)
+library(scales)
+library(stringr)
+library(flextable)
+library(plotly)
+library(shiny)
+library(skimr)
+library(htmltools)
+
+
+
+# Analisis Univariado
 
 ## Row {height="15%"}
 ### Column {width="25%"}
@@ -401,27 +419,6 @@ df %>%
 
 ### Column {width="50%"}
 ```{r}
-df %>% 
-  group_by(sistema) %>% 
-  summarise(n = n()) %>% 
-  arrange(desc(n)) %>% 
-  mutate(rank = 1:n()) %>% 
-  filter(rank <= 10) %>% 
-  rename(`Tipo de fallas` = sistema, Frecuencia = n) %>%
-  select(-rank) %>%
-  flextable() %>% 
-  fontsize(size = 10, part = "all") %>%
-  autofit() %>%
-  width(j = 1, width = 3) %>%
-  set_caption("Tabla 3: Top 10 de fallas por sistema")
-```
-
-
-# Resultados y Discusión 
-
-## Row {height="800px"}
-
-```{r}
 df %>% filter(!is.na(ubicacion)) %>% 
     group_by(ubicacion, ruta) %>% 
     summarise(frec = n()) %>% 
@@ -433,6 +430,72 @@ df %>% filter(!is.na(ubicacion)) %>%
     labs(x = "Numero de fallas", y = "Ubicación") +
     theme(axis.text.x = element_text(size = 12),            
           axis.text.y = element_text(size = 5))
+```
+#Analisis de normalidad
+## Row {height="auto"}
+### Column {width="33%"}
+```{r}
+# Histograma con densidad
+
+ggplot(df, aes(x = costo_x_perdida)) + 
+  geom_histogram(aes(y = ..density..),
+                 colour = 1, fill = "orange") +
+  geom_density()+
+  xlim(0, quantile(df$costo_x_perdida, 0.95))+
+  theme_classic()+
+  labs(x= "costo de operacion", y= "densidad")
+
+#normalidad
+df$costo_x_perdida %>% 
+  shapiro.test()
+#como es menor a 0.05 los daatos no se distribuyen normalmente
+#p-value < 0.00000000000000022
+```
+### Column {width="33%"}
+```{r}
+#caja y bigotes
+ggplot(df, aes(x = "", y = costo_opot_min)) +
+                  geom_boxplot(fill = "goldenrod") + 
+                  theme_classic()+
+                  labs(y = "Costo de oportunidad minimo")+
+    ylim(480000, 33000000) 
+```
+
+```{r}
+#Gráficos de probabilidad normal
+ggplot(df, aes(sample = costo_opot_min,color= factor(tipologia))) + 
+    stat_qq(color = "orange") + 
+    stat_qq_line(color = "grey") + 
+    theme_classic() + 
+    labs(x = "Cuantiles teóricos", y = "Cuantiles de la muestra",
+         title = "Gráfico Q-Q de costo de oportunidad mínimo")
+```
+
+# Análisis bivariado
+```{r}
+#Elaborar diagramas de dispersión y modelos de regresión entre cada par de variables
+#numéricas.
+nombre_titulos <- c("costo_opot_max" = "Costo maximo de oportunidad",
+                    "costo_x_perdida" = "Costo por pérdida",
+                    "kilometraje"="kilometraje")
+
+# Crear el gráfico `ggpairs` con títulos personalizados
+GGally::ggpairs(df, 
+        columns = c("costo_opot_max","costo_x_perdida","kilometraje"),
+        mapping = aes(color = tipologia),
+        labeller = ggplot2::as_labeller(nombre_titulos))
+
+```
+
+```{r}
+df %>% 
+  select_if(is.character) %>% 
+  select(afectacion_al_usuario,ruta,
+         ubicacion,tipologia,varado,
+         decision,sistema,subsistema,
+         estado,dia_habil,mes_falla) %>% 
+  tbl_summary(by= ruta, 
+    sort = all_categorical() ~ "frequency")
 ```
 
 

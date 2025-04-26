@@ -129,7 +129,9 @@ Stranded, Economic losses, Service quality, Users, SITM (Integrated System of Ma
 
 
 \textbf{Antecedentes:}
-
+El análisis de las fallas en los sistemas de transporte masivo ha sido ampliamente estudiado debido a su impacto en la economía, la calidad del servicio y el bienestar de la población. La eficiencia del sistema influye directamente en los niveles de satisfacción de los ciudadanos, afectando su experiencia de movilidad dentro de la ciudad. Investigaciones como **Sistemas Masivos de Transporte y sus Efectos en la Sostenibilidad e Innovación en América Latina** resaltan la importancia de una gestión estratégica que permita minimizar costos y optimizar la operatividad. La implementación de mantenimiento preventivo y la adecuada administración de los recursos resultan fundamentales para reducir interrupciones en el servicio y mejorar su continuidad. Por otro lado, el **Estudio sobre Sistemas Integrados de Transporte Masivo en Colombia** analiza los desafíos y avances en la gestión de estos sistemas a nivel nacional. Sus hallazgos refuerzan la necesidad de fortalecer estrategias de mantenimiento y modernización de flotas para mejorar la eficiencia operativa. 
+ 
+Asimismo, el estudio **Influencia de los Sistemas de Transporte Masivo en la Movilidad Inteligente** resaltan la importancia  de la tecnología en la detección y prevención de fallas. Con el uso de herramientas digitales y sistemas de monitoreo permiten reducir pérdidas económicas y mejorar la experiencia del usuario. Su aplicación en el **Sistema Integrado de Transporte Masivo (SITM) de Cartagena** podría ser una estrategia efectiva para optimizar el funcionamiento y disminuir la frecuencia de varadas.  
 \textbf{Objetivos:}
 
 Objetivo general:
@@ -145,12 +147,24 @@ Objetivos específicos:
 \end{enumerate}
 
 \textbf{Método:}
-
-Análisis de registros de varadas, análisis de pérdidas económicas, evaluación del impacto por ruta y ubicación, análisis estadístico.
+Se realizó un estudio transversal descriptivo sobre una base  de fallas en vehículos del Sistema Integrado de Transporte Masivo (SITM) de la ciudad de Cartagena. El análisis abarcó desde el 1 de septiembre de 2024 hasta el 1 de agosto de 2025.  por su parte, para las variables cualitativas se estimaron frecuencias absolutas y relativas y en el caso de las variables cuantitativas estas fueron resumidas a partir del uso de medias de tendencia central y dispersión particular, se usaron medias,frecuencias relativas y absolutas. La estimación del costo de oportunidad fue calculada teniendo en cuenta el numero de personas maxima que los vehiculos pueden trasportar y multiplicado por el costo total de la tarija a 2024 que era de $3000 pesos.
 
 \textbf{Resultados:}
+\begin{enumerate}
+    \item Durante los siete meses del estudio, se registraron un total de 3,635 fallas. Las rutas X106 (546 fallas) y X104 (524 fallas) presentaron el mayor número de incidencias. Asimismo, se observa que el tipo de vehículo con mayor frecuencia de averías es el Padron, con un total de 2,484 fallas, lo que representa el 68% del total.
+    \item Se observa que las fallas ocurren principalmente en el Patio Portal, con un total de 1,176 incidentes (37%), seguido por la Estación Bodeguita con 655 fallas (20%) y la Terminal con 191 fallas (5.9%). Estas averías suelen presentarse entre las 5:30 p. m. y las 7:00 p. m. En cuanto a las causas, el problema más frecuente es la falla en el sistema de aire comprimido, con 292 casos (18%), seguido por altas temperaturas y riesgos de daños en componentes y motores, con 230 reportes (14%). Otra avería común es el mal funcionamiento de las puertas, que representa 158 casos (9.8%).
+    \item En términos de costos, se identificó que la mediana de los costos por operación sugiere que el 50% de los costos de oportunidad mínimos son menores a 900,000, mientras que la otra mitad supera este valor. Por otro lado, el costo mínimo promedio de oportunidad calculado fue de 20,519,571 pesos colombianos por día varado, mientras que el máximo alcanzó los 43,889,084 pesos colombianos, lo que representaría una pérdida promedio de 1,545 usuarios.
+\end{enumerate}
+
   
 \textbf{Conclusión:}
+
+En conclusión, la recurrencia de varadas y sus consecuencias evidencian la necesidad de **optimizar los procesos de mantenimiento**, implementar **estrategias de prevención de fallas** y considerar **posibles mejoras en la infraestructura vehicular**. Abordar estos aspectos no solo contribuiría a reducir los costos operativos, sino que también mejoraría la experiencia del usuario y la continuidad del servicio, fortaleciendo la eficiencia y sostenibilidad del SITM. esto dado que se identifico por medio del análisis de las varadas de los vehículos del **Sistema Integrado de Transporte Masivo (SITM)**, que estos generan un impacto significativo tanto en las **pérdidas económicas de la empresa operadora** como en la **calidad del servicio percibida por los usuarios**.  
+
+dado que si lo miramos desde la perspectiva financiera, las interrupciones en el servicio generan costos elevados, con un costo mínimo promedio de **20,519,571 pesos colombianos por día varado**, alcanzando hasta **43,889,084 pesos** en los peores escenarios. Esto no solo representa un riesgo financiero considerable para la empresa, sino que también implica una pérdida diaria estimada de **1,545 usuarios**, afectando la sostenibilidad del sistema y la confianza en el usuario.Por su parte, en términos operativos, las fallas ocurren con mayor frecuencia en puntos clave como **el Patio Portal (37%)**, **la Estación Bodeguita (20%)** y **la Terminal (5.9%)**, y  estas suelen presentarse en horarios críticos entre **las 5:30 p. m** y **las 7:00 p. m**. Los problemas más recurrentes afectan a los buses son  **aire comprimido (32%)** y **el motor (23%)**, así como subsistemas esenciales como **los frenos (16%)** y **el sistema de refrigeración (16%)**.  
+
+pero esta  alta incidencia  de fallas se presenta en los vehículos de tipologia **Padron (68%)** lo que sugiere que ciertos modelos requieren **mayor mantenimiento o actualización** para reducir la frecuencia de varadas y mejorar la confiabilidad del sistema. Además, las fallas en el **sistema de aire comprimido (18%)** y los riesgos derivados de **altas temperaturas en los componentes** y **el motor (14%)** destacan como factores clave que deben ser abordados para mejorar la eficiencia del servicio, reducir la afectación  al servicio y mejor aumentar las ganancias producto del servicio.  
+
 
 \textbf{\textit{Palabras clave:}}
 Varadas, Pérdidas económicas, Calidad del servicio, Usuarios, SITM (Sistema Integrado de Transporte Masivo).
@@ -166,7 +180,7 @@ The Integrated System of Mass Transit (SITM) in the city of Cartagena plays a fu
 
 These breakdowns entail operational and maintenance costs associated with unproductive time. For users, such failures translate into delays, discomfort, and a loss of trust in the system.
 
-This study aims to comprehensively analyze these failures within the SITM, starting with the identification of associated costs, as well as the routes and locations where they occur most frequently, in order to identify critical operational patterns.
+This study aims to comprehensively analyze these failures within the SITM, starting with the identification of assoiated costs, as well as the routes and locations where they occur most frequently, in order to identify critical operational patterns.
 
 Finally, the study seeks to quantify the economic losses resulting from breakdowns, highlight the main areas of impact, and assess the negative consequences for users, with the ultimate goal of enhancing transparency and rebuilding trust in the system.
 
@@ -175,7 +189,7 @@ What is the impact of vehicle breakdowns in Cartagena’s Integrated System of M
 
 ## 2. Data
 
-The collected data corresponds to a representative sample of buses and routes within the city's Integrated Mass Transit System (SITM); therefore, it does not cover the system in its entirety. Additionally, the analysis is limited to a six-month period. The information was provided by one of the system’s operating companies. Both qualitative and quantitative data were gathered, although the latter predominates. Below is a detailed summary of the types and amounts of the final data to be used in the analysis.
+The collected data corresponds to a representative sample of buses and routes within the city's Integrated Mass Transit System (SITM); therefore, it does not cover the system in its entirety. Additionally, the analysis is limited to a seven-month period. The information was provided by one of the system’s operating companies. Both qualitative and quantitative data were gathered, although the latter predominates. Below is a detailed summary of the types and amounts of the final data to be used in the analysis.
 
 ```{r}
 # Cargar las librerías necesarias
