@@ -232,7 +232,7 @@ dia_repor_mayor_eventos <- df %>%
 
 ```
 
-# Materiales y meetdos
+# Materiales y metodos
 ## Row
 Se realizó un estudio transversal descriptivo sobre una base  de fallas en vehículos del Sistema Integrado de Transporte Masivo (SITM) de la ciudad de Cartagena. El análisis abarcó desde el 1 de septiembre de 2024 hasta el 1 de agosto de 2025.  por su parte, para las variables cualitativas se estimaron frecuencias absolutas y relativas y en el caso de las variables cuantitativas estas fueron resumidas a partir del uso de medias de tendencia central y dispersión particular, se usaron medias,frecuencias relativas y absolutas. La estimación del costo de oportunidad fue calculada teniendo en cuenta el numero de personas maxima que los vehiculos pueden trasportar y multiplicado por el costo total de la tarija a 2024 que era de $3.000 pesos.
 
