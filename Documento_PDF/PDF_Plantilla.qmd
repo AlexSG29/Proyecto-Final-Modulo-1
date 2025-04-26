@@ -87,41 +87,6 @@ Bolívar, Colombia, e-mail: \url{pastranam@utb.edu.co}, ID: T000XXXXX}
 \begin{center}\rule{12cm}{0.3mm} \end{center}
 
 \begin{center}
-\textbf{Abstract} 
-\end{center}
- 
-\justify
-
-\textbf{Background:}
-
-\textbf{Aims:} 
-
-General Objective:
-
-To analyze the impact of vehicle breakdowns within the Integrated System of Mass Transit (SITM) of the city of Cartagena on the economic losses of the operating company and on the perceived service quality by users.
-
-Specific Objectives:
-
-\begin{enumerate} 
-  \item Identify the routes and locations with the highest frequency and costs of breakdowns. 
-  \item Determine the main operational causes associated with breakdowns and their relationship with user satisfaction.    \item Quantify the economic losses caused by vehicle breakdowns in the SITM, taking into account operational and maintenance costs, as well as unproductive time. 
-\end{enumerate}
-
-\textbf{Methods:}
-
-Analysis of breakdown records, analysis of economic losses, assessment of impact by route and location, statistical analysis.
-
-\textbf{Results:}
-
-\textbf{Conclusions:}
-
-
-
-\textbf{\textit{Keywords:}}
-Stranded, Economic losses, Service quality, Users, SITM (Integrated System of Mass Transit).
-
-
-\begin{center}
 \textbf{Resumen} 
 \end{center}
 
@@ -174,22 +139,17 @@ Varadas, Pérdidas económicas, Calidad del servicio, Usuarios, SITM (Sistema In
 \end{@twocolumnfalse}
 
 
-## 1. Introduction
+## 1. Introducción
 
-The Integrated System of Mass Transit (SITM) in the city of Cartagena plays a fundamental role in urban mobility. Its proper functioning largely depends on the condition of the fleet and the operational efficiency of the vehicles. Consequently, one of the most recurring challenges faced by these systems is vehicle breakdowns or operational disruptions, which generate significant impacts for both the operating company and the users.
+El Sistema Integrado de Transporte Masivo (SITM) en la ciudad de Cartagena desempeña un papel fundamental en la movilidad urbana. Su correcto funcionamiento depende en gran medida del estado de la flota y de la eficiencia operativa de los vehículos. En consecuencia, uno de los desafíos más recurrentes que enfrentan estos sistemas son las averías de los vehículos o las interrupciones operativas, las cuales generan impactos significativos tanto para la empresa operadora como para los usuarios. Estas averías implican costos operativos y de mantenimiento asociados con el tiempo improductivo. Para los usuarios, estas fallas se traducen en retrasos, incomodidades y una pérdida de confianza en el sistema.
 
-These breakdowns entail operational and maintenance costs associated with unproductive time. For users, such failures translate into delays, discomfort, and a loss of trust in the system.
-
-This study aims to comprehensively analyze these failures within the SITM, starting with the identification of assoiated costs, as well as the routes and locations where they occur most frequently, in order to identify critical operational patterns.
-
-Finally, the study seeks to quantify the economic losses resulting from breakdowns, highlight the main areas of impact, and assess the negative consequences for users, with the ultimate goal of enhancing transparency and rebuilding trust in the system.
-
-Based on this context, the following research question arises:
-What is the impact of vehicle breakdowns in Cartagena’s Integrated System of Mass Transit (SITM) on the operating company’s economic losses and on the perceived quality of service by users?
+Este estudio tiene como objetivo analizar de manera integral estas fallas dentro del SITM, comenzando por la identificación de los costos asociados, así como las rutas y ubicaciones donde ocurren con mayor frecuencia, con el fin de identificar patrones operativos críticos.
+Finalmente, el estudio busca cuantificar las pérdidas económicas derivadas de las averías, destacar las principales áreas de impacto y evaluar las consecuencias negativas para los usuarios, con el objetivo final de mejorar la transparencia y reconstruir la confianza en el sistema. En base a este contexto, surge la siguiente pregunta de investigación:
+¿Cuál es el impacto de las averías de los vehículos en el Sistema Integrado de Transporte Masivo (SITM) de Cartagena sobre las pérdidas económicas de la empresa operadora y la calidad percibida del servicio por parte de los usuarios?
 
 ## 2. Data
 
-The collected data corresponds to a representative sample of buses and routes within the city's Integrated Mass Transit System (SITM); therefore, it does not cover the system in its entirety. Additionally, the analysis is limited to a seven-month period. The information was provided by one of the system’s operating companies. Both qualitative and quantitative data were gathered, although the latter predominates. Below is a detailed summary of the types and amounts of the final data to be used in the analysis.
+Los datos recopilados corresponden a una muestra representativa de autobuses y rutas dentro del Sistema Integrado de Transporte Masivo (SITM) de la ciudad; por lo tanto, no cubren la totalidad del sistema. Además, el análisis está limitado a un período de siete meses. La información fue proporcionada por una de las empresas operadoras del sistema. Se recolectaron datos tanto cualitativos como cuantitativos, aunque predominan los últimos. A continuación, se presenta un resumen detallado de los tipos y cantidades de datos finales que se utilizarán en el análisis.
 
 ```{r}
 # Cargar las librerías necesarias
